@@ -58,7 +58,13 @@ app.use(
 );
 
 app.listen(3000, () =>
-  console.log("emi backend running on port 5000 🎧 🥁 🎸 🔊")
+  console.log("emi backend running on port 3000 🎧 🥁 🎸 🔊")
 );
+
+const index = require('./routes/index');
+app.use('/', index);
+app.use('/api', require('./routes/projects'));
+app.use('/api', require('./routes/auth/professionals'))
+app.use('/api', require('./routes/quotes'))
 
 module.exports = app;
