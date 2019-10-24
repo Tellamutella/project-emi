@@ -26,9 +26,8 @@ router.post("/customer/signup", (req, res, next) => {
               lastname: lastname,
               mobile: mobile
             })
-              .then(res => {
-                console.log("user saved!");
-                res.send("saved");
+              .then(user => {
+                res.send({ user });
               })
               .catch(err => {
                 res.send(err);
@@ -47,16 +46,21 @@ router.post("/customer/login", (req, res, next) => {
   Customer.findOne({ email })
     .then(customer => {
       if (customer) {
-        bcrypt.compare(req.body.password, customer.password, (error, res) => {
-          if (error) {
-            res.send(error);
-          } else if (res) {
-            req.session.currentCustomer = customer;
-            console.log("customer logged in!");
-          } else {
-            console.log(`username or password incorrect`);
+        bcrypt.compare(
+          req.body.password,
+          customer.password,
+          (error, response) => {
+            if (error) {
+              res.send(error);
+            } else if (response) {
+              req.session.currentCustomer = customer;
+              console.log("customer logged in!");
+              res.send({ customer });
+            } else {
+              console.log(`username or password incorrect`);
+            }
           }
-        });
+        );
       }
     })
     .catch(error => {
