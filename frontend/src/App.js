@@ -1,13 +1,14 @@
 import React from "react";
-import "./App.css";
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
+import CustomerSignUp from "./pages/CustomerSignUp";
 
 function App() {
   return (
-    <fragment>
-      <Route path="/" component={Home} />
-    </fragment>
+    <>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/customer/signup" component={CustomerSignUp} />
+    </>
   );
 }
 

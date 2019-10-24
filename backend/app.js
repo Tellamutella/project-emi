@@ -57,7 +57,7 @@ app.use(
   })
 );
 
-app.use("/api", require("./routes/auth/user"));
+app.use("/api", require("./routes/auth/customer"));
 
 app.listen(5000, () =>
   console.log("emi backend running on port 5000 🎧 🥁 🎸 🔊")
