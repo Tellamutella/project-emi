@@ -14,12 +14,12 @@ router.post("/projects/create", (req, res, next) => {
   })
     .then(res => {
       console.log("project saved");
-      res.send({res})
+      res.send({ res })
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
-    });
-});
+    })
+})
 
 router.get("/projects", (req, res, next) => {
   Project.find()
