@@ -1,0 +1,29 @@
+.ProNav {
+    background: #B8B7FF;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+}
+
+.ProNav-Conditional {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70vw;
+    align-items: center;
+}
+
+.ProNav a, .ProNav p {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-decoration: none;
+    color: white;
+}
+
+.ProNav img {
+    height: 70px;
+    width: auto;
+}

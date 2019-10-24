@@ -25,9 +25,10 @@ router.post("/professional/signup", (req, res, next) => {
                             lastName: lastName,
                             mobile: mobile
                         })
-                            .then((result) => {
+                            .then((res) => {
                                 // console.log("User created!" + result);
                                 // res.send("")
+                                res.end()
                             })
                             .catch((err) => {
                                 res.send(err);
@@ -43,19 +44,30 @@ router.post("/professional/signup", (req, res, next) => {
 
 router.post("/professional/login", (req, res, next) => {
     Professional.findOne({ email: req.body.email })
-        .then(professional => {
+        .then((professional) => {
             if (!professional) {
-                console.log("email or password incorrect");
+                console.log("you do not have an account yet!");
             } else {
                 bcrypt.compare(req.body.password, professional.password, function (err, equal) {
-                    if (err) {
-                        console.log(err);
+                    if (equal) {
+                        let { email, firstName, lastName, id } = professional;
+                        let sessionData = { email, firstName, lastName, id };
+                        req.session.professional = sessionData;
+                        console.log("logged in!")
+                        res.json(sessionData)
                     } else if (!equal) {
-                        console.log("email or passweord incorrect")
+                        console.log("email or password incorrect")
                     } else {
-                        req.session.currentProfessional = professional;
-                        console.log("you're logged in!");
+                        console.log(err)
                     }
+                    // if (err) {
+                    //     console.log(err);
+                    // } else if (!equal) {
+                    //     console.log("email or passweord incorrect")
+                    // } else {
+                    //     req.session.currentProfessional = professional;
+                    //     console.log("you're logged in!");
+                    // }
                 })
             }
         })
@@ -65,8 +77,8 @@ router.post("/professional/login", (req, res, next) => {
 })
 
 router.get("/logout", (req, res) => {
-    req.session.destroy();
-    console.log("logged out")
+    req.session.destroy()
+    res.send("log out successful")
 })
 
 module.exports = router;

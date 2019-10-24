@@ -25,7 +25,7 @@ router.post('/projects/create', (req, res, next) => {
 router.get('/projects', (req, res, next) => {
     Project.find()
         .then((projects) => {
-            res.send(projects)
+            res.json(projects)
             console.log(projects)
         })
         .catch((err) => {
