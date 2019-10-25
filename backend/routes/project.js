@@ -14,18 +14,27 @@ router.post("/projects/create", (req, res, next) => {
   })
     .then(res => {
       console.log("project saved");
-      res.send({ res })
+      res.send({ res });
     })
-    .catch((err) => {
+    .catch(err => {
       res.json(err);
-    })
-})
+    });
+});
 
 router.get("/projects", (req, res, next) => {
   Project.find()
     .then(projects => {
       res.send(projects);
-      console.log(projects);
+    })
+    .catch(err => {
+      res.send(err);
+    });
+});
+
+router.get("/projects/:projectId", (req, res, next) => {
+  Project.findById(req.params.projectId)
+    .then(project => {
+      res.send(project);
     })
     .catch(err => {
       res.send(err);
