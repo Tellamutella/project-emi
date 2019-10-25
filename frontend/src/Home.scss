@@ -4,22 +4,33 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #ffe1d9;
-  flex-direction: column;
+  flex-direction: row;
+  background: #FFDA57;
 }
 
 .home h1 {
   width: 70%;
-  color: #484848;
+  color:#333333;
+  font-size: 4rem;
+
+  font-weight: 800;
+}
+
+.home img {
+  height: 400px;
+  weight: 400px;
 }
 
 .selection {
   margin-left: 20px;
   border: none;
   -webkit-appearance: none;
-  background-color: #ffe1d9;
-  font-size: 30px;
+  background-color:#FFDA57;
+  font-size: 4rem;
   cursor: pointer;
-  color: green;
+  color: white;
+  text-shadow: -1px 1px black, 0 1.5px black, 1.5px 1px black, 0 -1px black;
   font-weight: bold;
+
+  font-weight: 800;
 }
