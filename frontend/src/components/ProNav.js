@@ -4,7 +4,7 @@ import { logout, getUser } from "../utils/auth"
 import { withRouter } from "react-router"
 import axios from "axios"
 import "./ProNav.scss"
-import emilogo from "../images/emilogo2"
+import emilogo from "../images/emilogo3"
 
 class ProNav extends Component {
     constructor(props) {

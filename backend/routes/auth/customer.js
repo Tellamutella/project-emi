@@ -46,21 +46,29 @@ router.post("/customer/login", (req, res, next) => {
   Customer.findOne({ email })
     .then(customer => {
       if (customer) {
-        bcrypt.compare(
-          req.body.password,
-          customer.password,
-          (error, response) => {
-            if (error) {
-              res.send(error);
-            } else if (response) {
-              req.session.currentCustomer = customer;
-              console.log("customer logged in!");
-              res.send({ customer });
+        bcrypt.compare(req.body.password, customer.password,
+          (error, equal) => {
+            if (equal) {
+              let { email, firstname, lastname, id } = customer;
+              let sessionData = { email, firstname, lastname, id };
+              req.session.customer = sessionData;
+              console.log("you're logged in!")
+              res.json(sessionData)
+            } else if (!equal) {
+              console.log("email or password incorrect!")
             } else {
-              console.log(`username or password incorrect`);
+              console.log(error)
             }
-          }
-        );
+            // if (error) {
+            //   res.send(error);
+            // } else if (response) {
+            //   req.session.currentCustomer = customer;
+            //   console.log("customer logged in!");
+            //   res.send({ customer });
+            // } else {
+            //   console.log(`username or password incorrect`);
+            // }
+          });
       }
     })
     .catch(error => {
