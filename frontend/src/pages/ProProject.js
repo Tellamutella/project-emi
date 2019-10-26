@@ -26,6 +26,7 @@ export default class ProProjects extends Component {
       });
   }
 
+
   render() {
     return (
       <div className="pro-project-container">

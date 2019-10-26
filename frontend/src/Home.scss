@@ -5,7 +5,7 @@
   height: 100vh;
   width: 100vw;
   flex-direction: row;
-  background: #FFDA57;
+  background: #E6F5C3;
 }
 
 .home h1 {
@@ -16,21 +16,27 @@
   font-weight: 800;
 }
 
-.home img {
-  height: 400px;
-  weight: 400px;
-}
-
 .selection {
   margin-left: 20px;
   border: none;
   -webkit-appearance: none;
-  background-color:#FFDA57;
+  background-color:#E6F5C3;
   font-size: 4rem;
   cursor: pointer;
+text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
   color: white;
-  text-shadow: -1px 1px black, 0 1.5px black, 1.5px 1px black, 0 -1px black;
   font-weight: bold;
 
+  font-weight: 800;
+}
+
+.home button {
+  background: white;
+  border-radius: 10px;
+  border: black 1px solid;
+  padding: 10px 10px;
+  font-size: 1rem;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+  color: white;
   font-weight: 800;
 }

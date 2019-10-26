@@ -18,7 +18,6 @@ export default class Home extends Component {
           </select>
           and im in the IT field
         </h1>
-        <img src={dogwalker} alt="" />
         <button>Get A Quote Now!</button>
       </div>
     );
