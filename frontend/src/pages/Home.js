@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import "../Home.scss";
-import dogwalker from "../images/dogwalker"
+import dogwalker from "../images/dogwalker";
 
 export default class Home extends Component {
   constructor(props) {
@@ -15,7 +15,8 @@ export default class Home extends Component {
           <select className="selection">
             <option value="Customer">Customer</option>
             <option value="Professional">Professional</option>
-          </select>and im in the IT field
+          </select>
+          and im in the IT field
         </h1>
         <button>Get A Quote Now!</button>
       </div>

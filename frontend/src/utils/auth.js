@@ -1,6 +1,5 @@
 import axios from "axios";
-import qs from "qs"
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 // const axios = Axios.create({
@@ -8,13 +7,13 @@ const history = createBrowserHistory();
 //     baseURL: process.env.REACT_APP_API
 // });
 
-export const setUser = function (user) {
-    localStorage.setItem('user', JSON.stringify(user))
-}
+export const setUser = function(user) {
+  localStorage.setItem("user", JSON.stringify(user));
+};
 
-export const getUser = function () {
-    return JSON.parse(localStorage.getItem("user"))
-}
+export const getUser = function() {
+  return JSON.parse(localStorage.getItem("user"));
+};
 
 export const logout = function () {
     return axios.get("http://localhost:5000/api/logout")

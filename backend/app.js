@@ -13,7 +13,8 @@ var app = express();
 mongoose
   .connect(`mongodb://localhost/emi-project`, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify:false
   })
   .then(x => {
     console.log(

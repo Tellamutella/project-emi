@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./CustomerSignUp.scss";
 import axios from "axios";
-import { setUser } from "../utils/auth"
+import { setUser } from "../utils/auth";
 
 class CustomerSignUp extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class CustomerSignUp extends Component {
         },
         url: "http://localhost:5000/api/customer/signup"
       })
-        .then((response) => {
+        .then(response => {
           axios({
             method: "POST",
             data: {
@@ -74,8 +74,8 @@ class CustomerSignUp extends Component {
             })
             .catch(err => {
               console.log(err);
-            })
-          localStorage.setItem('user', JSON.stringify(response.data.user))
+            });
+          localStorage.setItem("user", JSON.stringify(response.data.user));
         })
         .catch(err => {
           console.log(err);
@@ -89,8 +89,8 @@ class CustomerSignUp extends Component {
         },
         url: "http://localhost:5000/api/customer/login"
       })
-        .then((response) => {
-          debugger
+        .then(response => {
+          debugger;
           axios({
             method: "POST",
             data: {
@@ -108,10 +108,10 @@ class CustomerSignUp extends Component {
             .catch(err => {
               console.log(err);
             });
-          localStorage.setItem('user', JSON.stringify(response.data))
+          localStorage.setItem("user", JSON.stringify(response.data));
         })
         .catch(err => {
-          console.log(err)
+          console.log(err);
         });
     }
   };

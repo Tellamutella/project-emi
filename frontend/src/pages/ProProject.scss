@@ -1,0 +1,17 @@
+.pro-project-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 80vh;
+  padding: 30px 30px;
+}
+
+.project-side-bar {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.side-bar-item {
+    width: 100%;
+}
