@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { logout, getUser } from "../utils/auth"
 import { withRouter } from "react-router"
 import axios from "axios"
-import "./ProNav.scss"  
+import "./ProNav.scss"
 import emilogo from "../images/emilogo3"
 
 class ProNav extends Component {
@@ -23,16 +23,25 @@ class ProNav extends Component {
 
     render() {
         return (
-            <div className="ProNav">
-                <Link to={`/`}><img src={emilogo} alt="" /></Link>
-                <div className="ProNav-Conditional">
-                    <Link to={`/professional/signup`}>Pro Sign Up</Link>
-                    <Link to={`/professional/login`}>Pro Login</Link>
-                    <Link to={`/professional/projects`}>All Projects</Link>
-                    <p onClick={this.logoutUser}>LogOut</p>
-                    <Link to={`/professional/profile`}>pro profile</Link>
-                </div>
-            </div>
+            <>
+                {this.state.user ?
+                    <div className="ProNav">
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
+                        <div className="ProNav-Conditional">
+                            <Link to={`/professional/projects`}>All Projects</Link>
+                            <Link to={`/professional/profile`}>pro profile</Link>
+                            <p onClick={this.logoutUser}>LogOut</p>
+                        </div>
+                    </div> :
+                    <div className="ProNav">
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
+                        <div className="ProNav-Conditional">
+                            <Link to={`/professional/signup`}>Pro Sign Up</Link>
+                            <Link to={`/professional/login`}>Pro Login</Link>
+                        </div>
+                    </div>
+                }
+            </>
         )
     }
 }

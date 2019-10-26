@@ -21,14 +21,25 @@ export default class CusNav extends Component {
 
     render() {
         return (
-            <div className="ProNav">
-                <Link to={`/`}><img src={emilogo} alt="" /></Link>
-                <div className="ProNav-Conditional">
-                    <Link to={`/customer/signup`}>Cus Sign Up</Link>
-                    <Link to={`/customer/projects`}>Cus Project</Link>
-                    <Link to={`/customer/login`}>Cus Log in</Link>
-                </div>
-            </div>
+            <>
+                {this.state.user ?
+                    <div className="ProNav">
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
+                        <div className="ProNav-Conditional">
+                            <Link to={`/customer/projects`}>Cus Project</Link>
+                        </div>
+                    </div>
+                    :
+                    <div className="ProNav">
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
+                        <div className="ProNav-Conditional">
+                            <Link to={`/customer/signup`}>Cus Sign Up</Link>
+                            <Link to={`/customer/login`}>Cus Log in</Link>
+                        </div>
+                    </div>
+                }
+            </>
+
         )
     }
 }

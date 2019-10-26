@@ -6,12 +6,12 @@ import qs from "qs";
 //     baseURL: process.env.REACT_APP_API
 // });
 
-export const setUser = function(user) {
-  localStorage.setItem("user", JSON.stringify(user));
+export const setUser = function (user) {
+    localStorage.setItem("user", JSON.stringify(user));
 };
 
-export const getUser = function() {
-  return JSON.parse(localStorage.getItem("user"));
+export const getUser = function () {
+    return JSON.parse(localStorage.getItem("user"));
 };
 
 export const logout = function() {

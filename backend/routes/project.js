@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const Project = require("../models/project");
+const Quote = require("../models/quote")
 
 //POST route => to create a new project
 router.post("/projects/create", (req, res, next) => {
@@ -41,5 +42,18 @@ router.get("/projects/:projectId", (req, res, next) => {
       res.send(err);
     });
 });
+
+router.get("/customer/projects/:projectId", (req, res, next) => {
+  debugger
+  Project.findById(req.params.projectId)
+    .populate('quotes')
+    .then(project => {
+      debugger
+      res.send(project);
+    })
+    .catch(err => {
+      res.send(err);
+    });
+})
 
 module.exports = router;

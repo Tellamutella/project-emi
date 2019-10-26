@@ -41,8 +41,10 @@ export default class CustomerProject extends Component {
                 {this.state.filteredProjects.map((project) =>
                     <div className="CusProBox">
                         <h2>{project.title}</h2>
+
+                        <p>You have received {project.quotes.length} quotes</p>
                         <Link to={`/customer/projects/${project._id}`}>
-                            <button>Check all available quotes</button>
+                            <button>Check quotes</button>
                         </Link>
                     </div>
                 )}
