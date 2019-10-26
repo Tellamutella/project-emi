@@ -1,4 +1,3 @@
-import Axios from "axios";
 import axios from "axios";
 import qs from "qs"
 import { createBrowserHistory } from 'history';
@@ -22,6 +21,22 @@ export const logout = function () {
         .then((res) => {
             localStorage.removeItem("user")
             console.log("logged out")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+export const login = function (email, password) {
+    return axios({
+        url: "http://localhost:5000/api/customer/login",
+        data: qs.stringify({ email, password }),
+        method: "POST",
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+    })
+        .then((res) => {
+            console.log(res.data)
+            setUser(res.data)
         })
         .catch((err) => {
             console.log(err)

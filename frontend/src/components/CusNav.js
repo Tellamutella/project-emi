@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
+import { getUser, logout } from '../utils/auth'
 import { Link } from "react-router-dom"
-import { logout, getUser } from "../utils/auth"
-import { withRouter } from "react-router"
-import axios from "axios"
-import "./ProNav.scss"  
 import emilogo from "../images/emilogo3"
+import "./ProNav.scss"
 
-class ProNav extends Component {
+export default class CusNav extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -26,15 +24,11 @@ class ProNav extends Component {
             <div className="ProNav">
                 <Link to={`/`}><img src={emilogo} alt="" /></Link>
                 <div className="ProNav-Conditional">
-                    <Link to={`/professional/signup`}>Pro Sign Up</Link>
-                    <Link to={`/professional/login`}>Pro Login</Link>
-                    <Link to={`/professional/projects`}>All Projects</Link>
-                    <p onClick={this.logoutUser}>LogOut</p>
-                    <Link to={`/professional/profile`}>pro profile</Link>
+                    <Link to={`/customer/signup`}>Cus Sign Up</Link>
+                    <Link to={`/customer/projects`}>Cus Project</Link>
+                    <Link to={`/customer/login`}>Cus Log in</Link>
                 </div>
             </div>
         )
     }
 }
-
-export default withRouter(ProNav);

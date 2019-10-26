@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import axios from "axios"
 
 export default class ProProjects extends Component {
-    constructor() {
-        super()
-        this.state = {
-            projects: [],
-            loading: true
-        }
+    state = {
+        projects: [],
+        loading: true
     }
+
 
     componentDidMount() {
         axios({
