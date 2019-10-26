@@ -16,15 +16,13 @@ import CustomerProQuotes from "./pages/CustomerProQuotes";
 function App() {
   return (
     <>
-      <ProNav />
-      <CusNav />
       <Route exact path="/" component={Home} />
       <Route path="/professional/signup" component={ProSignUp} />
       <Route path="/professional/login" component={ProLogIn} />
       <Route path="/professional/projects" component={ProProjects} />
       <Route exact path="/customer/signup" component={CustomerSignUp} />
       <Route path="/customer/login" component={CustomerLogIn} />
-      <Route path="/customer/projects" component={CustomerProject} />
+      <Route exact path="/customer/projects" component={CustomerProject} />
       <Route path="/customer/projects/:id" component={CustomerProQuotes} />
     </>
   );

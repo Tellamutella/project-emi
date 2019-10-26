@@ -4,39 +4,51 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  flex-direction: row;
-  background: #E6F5C3;
+  flex-direction: column;
+  background: white;
 }
 
 .home h1 {
   width: 70%;
   color:#333333;
-  font-size: 4rem;
-
+  font-size: 3rem;
   font-weight: 800;
+}
+
+.homeColRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home img {
+  width: 70vw;
+  height: auto;
+  margin-top: 50px;
 }
 
 .selection {
   margin-left: 20px;
   border: none;
   -webkit-appearance: none;
-  background-color:#E6F5C3;
-  font-size: 4rem;
+  background-color:white;
+  font-size: 3rem;
   cursor: pointer;
-text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
-  color: white;
+// text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+  color:#3BC9DB;
   font-weight: bold;
-
   font-weight: 800;
 }
 
 .home button {
-  background: white;
+  background: #087285;
   border-radius: 10px;
-  border: black 1px solid;
   padding: 10px 10px;
-  font-size: 1rem;
-  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+  border: none;
+  font-size: 0.8rem;
   color: white;
   font-weight: 800;
+  width: 200px;
+  text-transform: uppercase;
 }
