@@ -6,7 +6,6 @@ const Project = require("../models/project.js");
 const mongoose = require("mongoose");
 
 router.post("/quotes/create", (req, res) => {
-  console.log(req.body.projectId);
   Quote.create({
     // professional: mongoose.Types.ObjectId(req.session.currentProfessional._id),
     professional: mongoose.Types.ObjectId(req.body.userId),
@@ -20,11 +19,13 @@ router.post("/quotes/create", (req, res) => {
         { $push: { quotes: quote._id } },
         { new: true }
       )
-        .then(res => {
-          console.log('it worked!')
-          res.send(quote);
+        .then(project => {
+          console.log(project);
+          console.log("it worked!");
+          res.send(project);
         })
         .catch(err => {
+          console.log(err);
         });
     })
     .catch(err => {

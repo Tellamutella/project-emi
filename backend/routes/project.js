@@ -34,6 +34,7 @@ router.get("/projects", (req, res, next) => {
 
 router.get("/projects/:projectId", (req, res, next) => {
   Project.findById(req.params.projectId)
+    .populate("quotes")
     .then(project => {
       res.send(project);
     })

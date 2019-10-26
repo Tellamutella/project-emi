@@ -90,7 +90,6 @@ class CustomerSignUp extends Component {
         url: "http://localhost:5000/api/customer/login"
       })
         .then(response => {
-          debugger;
           axios({
             method: "POST",
             data: {
