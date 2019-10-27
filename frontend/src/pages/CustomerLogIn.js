@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { login } from "../utils/auth"
+import { login, getCustomer } from "../utils/auth"
 
 export default class CustomerLogIn extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export default class CustomerLogIn extends Component {
         this.submitHandler = (e) => {
             e.preventDefault()
             login(this.state.email, this.state.password)
-            this.props.history.push(`/`)
+            this.props.history.push('/home')
         }
     }
     render() {

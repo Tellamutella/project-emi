@@ -52,7 +52,7 @@ router.post("/customer/login", (req, res, next) => {
               let { email, firstname, lastname, id } = customer;
               let sessionData = { email, firstname, lastname, id };
               req.session.customer = sessionData;
-              console.log("you're logged in!")
+              console.log("customer logger in")
               res.json(sessionData)
             } else if (!equal) {
               console.log("email or password incorrect!")

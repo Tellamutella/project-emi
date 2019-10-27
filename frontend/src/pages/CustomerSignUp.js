@@ -75,7 +75,7 @@ class CustomerSignUp extends Component {
             .catch(err => {
               console.log(err);
             });
-          localStorage.setItem("user", JSON.stringify(response.data.user));
+          localStorage.setItem("customer", JSON.stringify(response.data.user));
         })
         .catch(err => {
           console.log(err);
@@ -107,7 +107,7 @@ class CustomerSignUp extends Component {
             .catch(err => {
               console.log(err);
             });
-          localStorage.setItem("user", JSON.stringify(response.data));
+          localStorage.setItem("customer", JSON.stringify(response.data));
         })
         .catch(err => {
           console.log(err);

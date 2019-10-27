@@ -46,7 +46,12 @@ router.get("/projects/:projectId", (req, res, next) => {
 router.get("/customer/projects/:projectId", (req, res, next) => {
   debugger
   Project.findById(req.params.projectId)
-    .populate('quotes')
+    .populate({
+      path: 'quotes',
+      populate: {
+        path: 'professional'
+      }
+    })
     .then(project => {
       debugger
       res.send(project);
