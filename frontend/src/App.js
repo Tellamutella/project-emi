@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
-
 import ProSignUp from "./pages/ProSignUp";
 import ProNav from "./components/ProNav";
 import ProLogIn from "./pages/ProLogIn";
@@ -10,6 +9,7 @@ import CustomerSignUp from "./pages/CustomerSignUp";
 import CustomerLogIn from "./pages/CustomerLogIn";
 import CustomerProject from "./pages/CustomerProject";
 import CustomerProQuotes from "./pages/CustomerProQuotes";
+import ProjectDetails from "./pages/professional/ProjectDetails";
 import { getProfessional, getCustomer, logout } from "./utils/auth";
 import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
@@ -42,6 +42,11 @@ class App extends Component {
         />
 
         <Route path="/home" component={Home} />
+      
+              <Route
+          path="/professional/projects/details/m/:id"
+          render={props => <ProjectDetails {...props} />}
+        />
         <Route path="/professional/signup" component={ProSignUp} />
         <Route path="/professional/login" component={ProLogIn} />
         <Route path="/professional/projects" component={ProProjects} />
