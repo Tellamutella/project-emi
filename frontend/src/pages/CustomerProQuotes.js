@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import "./CustomerProQuotes.scss"
 
 export default class CustomerProQuotes extends Component {
 
@@ -25,15 +26,22 @@ export default class CustomerProQuotes extends Component {
             <div>
                 {this.state.project === null ?
                     <p>loading </p> :
-                    <>
-                        <h2>{this.state.project.title}</h2>
+                    <div className="QuotesLargeContainer">
+                        <div className="QuotesProjectContainer">
+                            <h2>{this.state.project.title}</h2>
+                            <p>{this.state.project.description}</p>
+                        </div>
                         {this.state.project.quotes.map((quote) =>
-                            <>
-                                <h3>{quote.professional.firstName}</h3>
-                                <p>{quote.hourlyPrice}</p>
-                            </>
+                            <div className="QuotesContainer">
+                                <div className="QuotesContainerColRow">
+                                    <h3>Quote from {quote.professional.firstName}</h3>
+                                    <p>Price: ${quote.hourlyPrice}/hour</p>
+                                    <p>{quote.description}</p>
+                                </div>
+                                <button>Chat</button>
+                            </div>
                         )}
-                    </>
+                    </div>
                 }
 
             </div>

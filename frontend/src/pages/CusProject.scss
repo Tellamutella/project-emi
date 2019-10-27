@@ -1,20 +1,44 @@
 .CusPro {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 0 0;
 
 }
 
 .CusProBox {
     display: flex;
-    flex-direction: column;
-    width: 200px;
-    height: 150px;
-    box-shadow: 1px 1px 1px#999999;
-    border-radius: 10px;
-    margin: 0 5px 0 5px;
-}
-
-.CusProBox > button {
-    backgronud: #E6F5C3;
-    color: white;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    height: 110px;
+    border-radius: 7px;
+    margin: 10px 0px 0 0px;
+    border: #d0f1ed solid 1px;
+    h2 {
+        color: #484848;
+        font-size: 1.2rem;
+        margin: 12px 0 5px 9px;
+    }
+    p{
+        color: #484848;
+        margin: 10px 0 10px 9px;
+        font-size: 0.9rem;
+    }
+    button {
+        margin: 0 0 0 22px;
+        background-color: #087285;
+        border: #087285;
+        border-radius: 7px;
+        padding: 7px 10px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+    }
+    .CusProBoxDiv {
+        width: 200px;
+    }
 }

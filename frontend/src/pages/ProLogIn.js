@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
+import { prologin } from "../utils/auth"
 
 export default class ProLogIn extends Component {
   constructor(props) {
@@ -19,22 +20,24 @@ export default class ProLogIn extends Component {
 
     this.submitHandler = event => {
       event.preventDefault();
-      axios({
-        url: "http://localhost:5000/api/professional/login",
-        method: "POST",
-        data: qs.stringify(this.state),
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
-      })
-        .then(pro => {
-          localStorage.setItem("user", JSON.stringify(pro.data));
-          this.props.history.push(`/`);
-          console.log(pro.data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      prologin(this.state.email, this.state.password)
+      this.props.history.push('/');
+      // axios({
+      //   url: "http://localhost:5000/api/professional/login",
+      //   method: "POST",
+      //   data: qs.stringify(this.state),
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded"
+      //   }
+      // })
+      //   .then(pro => {
+      //     localStorage.setItem("user", JSON.stringify(pro.data));
+      //     this.props.history.push(`/`);
+      //     console.log(pro.data);
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
     };
   }
   render() {

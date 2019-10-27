@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { getUser } from "../../utils/auth";
+import { getProfessional } from "../../utils/auth";
 import Prodetail from "./Prodetail";
 import "./ProjectDetails.scss";
 export default class ProjectDetails extends Component {
@@ -8,7 +8,7 @@ export default class ProjectDetails extends Component {
     project: null,
     hourlyPrice: "",
     description: "",
-    user: getUser(),
+    user: getProfessional(),
     quote: null
   };
   componentDidMount() {
@@ -76,6 +76,7 @@ export default class ProjectDetails extends Component {
   };
 
   render() {
+    console.log(this.state.user.id)
     return (
       <div className="project-detail-container">
         {this.state.project ? (
@@ -91,30 +92,31 @@ export default class ProjectDetails extends Component {
                 <h4>im the Quoted part</h4>
               </div>
             ) : (
-              <form onSubmit={this.sumbitHandler}>
-                <input
-                  placeholder="Price per hour"
-                  onChange={this.inputHandler}
-                  name="hourlyPrice"
-                  value={this.state.hourlyPrice}
-                  type="text"
-                />
-                <input
-                  placeholder="Description"
-                  onChange={this.inputHandler}
-                  name="description"
-                  value={this.state.description}
-                  type="text"
-                />
-                <button type="submit"> Sumbit Quote</button>
-              </form>
-            )}
+                <form onSubmit={this.sumbitHandler}>
+                  <input
+                    placeholder="Price per hour"
+                    onChange={this.inputHandler}
+                    name="hourlyPrice"
+                    value={this.state.hourlyPrice}
+                    type="text"
+                  />
+                  <input
+                    placeholder="Description"
+                    onChange={this.inputHandler}
+                    name="description"
+                    value={this.state.description}
+                    type="text"
+                  />
+                  <button type="submit"> Sumbit Quote</button>
+                </form>
+              )}
           </>
         ) : (
           <div className="loading">
             <h1>LOADING!!!</h1>
           </div>
         )}
+
       </div>
     );
   }

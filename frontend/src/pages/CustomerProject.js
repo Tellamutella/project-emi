@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { getUser } from "../utils/auth"
+import { getUser, getCustomer } from "../utils/auth"
 import { Link } from "react-router-dom";
 import "./CusProject.scss"
+import ProNav from "../components/ProNav"
 
 export default class CustomerProject extends Component {
 
     state = {
         projects: [],
         filteredProjects: [],
-        user: getUser()
+        user: getCustomer()
     }
 
     filterProject = (data) => {
@@ -33,22 +34,23 @@ export default class CustomerProject extends Component {
             })
     }
 
-
-
     render() {
         return (
-            <div className="CusPro">
-                {this.state.filteredProjects.map((project) =>
-                    <div className="CusProBox">
-                        <h2>{project.title}</h2>
-
-                        <p>You have received {project.quotes.length} quotes</p>
-                        <Link to={`/customer/projects/${project._id}`}>
-                            <button>Check quotes</button>
-                        </Link>
-                    </div>
-                )}
-            </div>
+            <>
+                <div className="CusPro">
+                    {this.state.filteredProjects.map((project) =>
+                        <div className="CusProBox">
+                            <div className="CusProBoxDiv">
+                                <h2>{project.title}</h2>
+                                <p>Quotes received: {project.quotes.length}</p>
+                            </div>
+                            <Link to={`/customer/projects/${project._id}`}>
+                                <button>Check quotes</button>
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            </>
         )
     }
 }
