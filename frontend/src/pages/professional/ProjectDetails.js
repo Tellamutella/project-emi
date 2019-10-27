@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { getUser } from "../../utils/auth";
 import Prodetail from "./Prodetail";
+import "./ProjectDetails.scss";
 export default class ProjectDetails extends Component {
   state = {
     project: null,
@@ -82,10 +83,13 @@ export default class ProjectDetails extends Component {
             <Prodetail project={this.state.project} />
 
             {this.state.quote ? (
-              <>
-                <h1>{this.state.quote.hourlyPrice} </h1>
-                <h1>im here</h1>
-              </>
+              <div className='project-detail-quoted'>
+                <h4>Quoted hourlyPrice:</h4>
+                <p>{this.state.quote.hourlyPrice}</p>
+                <h4>Quoted description:</h4>
+                <p>{this.state.quote.description}</p>
+                <h4>im the Quoted part</h4>
+              </div>
             ) : (
               <form onSubmit={this.sumbitHandler}>
                 <input
@@ -107,7 +111,9 @@ export default class ProjectDetails extends Component {
             )}
           </>
         ) : (
-          <div className="loading"></div>
+          <div className="loading">
+            <h1>LOADING!!!</h1>
+          </div>
         )}
       </div>
     );
