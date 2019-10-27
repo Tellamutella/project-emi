@@ -9,11 +9,15 @@ export default class ProProjects extends Component {
     super();
     this.state = {
       projects: [],
-      loading: true
+      loading: true,
+      isDesktop: false
     };
+    this.updatePredicate = this.updatePredicate.bind(this);
   }
 
   componentDidMount() {
+    this.updatePredicate();
+    window.addEventListener("resize", this.updatePredicate);
     axios({
       method: "GET",
       url: "http://localhost:5000/api/projects"
@@ -26,29 +30,58 @@ export default class ProProjects extends Component {
       });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate() {
+    this.setState({ isDesktop: window.innerWidth > 500 });
+  }
 
   render() {
+    const isDesktop = this.state.isDesktop;
     return (
-      <div className="pro-project-container">
-        <div className="project-side-bar">
-          {this.state.projects.map(project => (
-            <div className="side-bar-item">
-              <h2>Title: {project.title}</h2>
-              <Link to={`/professional/projects/details/${project._id}`}>
-                <button>check detail</button>
-              </Link>
+      <>
+        {isDesktop ? (
+          <div className="pro-project-container">
+            <div className="project-side-bar">
+              {this.state.projects.map(project => (
+                <div className="side-bar-item">
+                  <p>{project.title}</p>
+                  <p>{project.category}</p>
+                  <Link
+                    className="project-detail-button"
+                    to={`/professional/projects/details/${project._id}`}
+                  >
+                    check me out
+                  </Link>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div>
-          <Route
-            path="/professional/projects/details/:id"
-            render={props => (
-              <ProjectDetails {...props} projects={this.state.projects} />
-            )}
-          />
-        </div>
-      </div>
+            <Route
+              path="/professional/projects/details/:id"
+              render={props => (
+                <ProjectDetails {...props} projects={this.state.projects} />
+              )}
+            />
+          </div>
+        ) : (
+          <div className="project-mobile">
+            {this.state.projects.map(project => (
+              <div className="project-mobile-item">
+                <h2>Title: {project.title}</h2>
+                <h3>category: {project.category}</h3>
+                <Link
+                  className="project-detail-button"
+                  to={`/professional/projects/details/m/${project._id}`}
+                >
+                  check me out
+                </Link>
+              </div>
+            ))}
+          </div>
+        )}
+      </>
     );
   }
 }

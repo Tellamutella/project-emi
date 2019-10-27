@@ -1,12 +1,27 @@
-.project-detail-container{
-    display: flex;
-    flex-direction: column;
+@import "../../assets/sharedStyles/breakpoints";
+
+.project-detail-container {
+  display: flex;
+  flex-direction: column;
+  width: 85vw;
+  padding: 30px;
 }
 
-.loading{
-    width: 100vw;
-    height: 1000vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loading {
+  width: 100vw;
+  height: 1000vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-detail-quoted {
+  text-align: right;
+  color: green;
+  @include breakpoint(medium) {
+    color: blue;
+  }
+  @include breakpoint(large) {
+    color: red;
+  }
 }
