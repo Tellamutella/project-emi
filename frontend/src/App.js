@@ -31,7 +31,7 @@ class App extends Component {
     });
     history.push("/home");
   }
-
+  
   render() {
     return (
       <>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { getProfessional } from "../../utils/auth";
 import Prodetail from "./Prodetail";
 import "./ProjectDetails.scss";
+import BasicLayout from "../../layout/BasicLayout";
 export default class ProjectDetails extends Component {
   state = {
     project: null,
@@ -78,47 +79,48 @@ export default class ProjectDetails extends Component {
   render() {
     console.log(this.state.user.id)
     return (
-      <div className="project-detail-container">
-        {this.state.project ? (
-          <>
-            <Prodetail project={this.state.project} />
+      <BasicLayout>
+        <div className="project-detail-container">
+          {this.state.project ? (
+            <>
+              <Prodetail project={this.state.project} />
 
-            {this.state.quote ? (
-              <div className='project-detail-quoted'>
-                <h4>Quoted hourlyPrice:</h4>
-                <p>{this.state.quote.hourlyPrice}</p>
-                <h4>Quoted description:</h4>
-                <p>{this.state.quote.description}</p>
-                <h4>im the Quoted part</h4>
+              {this.state.quote ? (
+                <div className='project-detail-quoted'>
+                  <h4>Quoted hourlyPrice:</h4>
+                  <p>{this.state.quote.hourlyPrice}</p>
+                  <h4>Quoted description:</h4>
+                  <p>{this.state.quote.description}</p>
+                  <h4>im the Quoted part</h4>
+                </div>
+              ) : (
+                  <form onSubmit={this.sumbitHandler}>
+                    <input
+                      placeholder="Price per hour"
+                      onChange={this.inputHandler}
+                      name="hourlyPrice"
+                      value={this.state.hourlyPrice}
+                      type="text"
+                    />
+                    <input
+                      placeholder="Description"
+                      onChange={this.inputHandler}
+                      name="description"
+                      value={this.state.description}
+                      type="text"
+                    />
+                    <button type="submit"> Sumbit Quote</button>
+                  </form>
+                )}
+            </>
+          ) : (
+              <div className="loading">
+                <h1>LOADING!!!</h1>
               </div>
-            ) : (
-                <form onSubmit={this.sumbitHandler}>
-                  <input
-                    placeholder="Price per hour"
-                    onChange={this.inputHandler}
-                    name="hourlyPrice"
-                    value={this.state.hourlyPrice}
-                    type="text"
-                  />
-                  <input
-                    placeholder="Description"
-                    onChange={this.inputHandler}
-                    name="description"
-                    value={this.state.description}
-                    type="text"
-                  />
-                  <button type="submit"> Sumbit Quote</button>
-                </form>
-              )}
-          </>
-        ) : (
-          <div className="loading">
-            <h1>LOADING!!!</h1>
-          </div>
-        )}
+            )}
 
-      </div>
-    );
+        </div>
+      </BasicLayout>)
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import qs from "qs"
+import BasicLayout from '../layout/BasicLayout';
 
 export default class ProSignUp extends Component {
     constructor() {
@@ -40,27 +41,29 @@ export default class ProSignUp extends Component {
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <label>email</label>
-                    <input required type="text" name="email" value={this.state.email} onChange={(e) => this.changeHandler(e)} />
+            <BasicLayout>
+                <div>
+                    <form onSubmit={this.submitHandler}>
+                        <label>email</label>
+                        <input required type="text" name="email" value={this.state.email} onChange={(e) => this.changeHandler(e)} />
 
-                    <label>password</label>
-                    <input required type="text" name="password" value={this.state.password} onChange={(e) => this.changeHandler(e)} />
+                        <label>password</label>
+                        <input required type="text" name="password" value={this.state.password} onChange={(e) => this.changeHandler(e)} />
 
-                    <label>firstname</label>
-                    <input required type="text" name="firstName" value={this.state.firstName} onChange={(e) => this.changeHandler(e)} />
+                        <label>firstname</label>
+                        <input required type="text" name="firstName" value={this.state.firstName} onChange={(e) => this.changeHandler(e)} />
 
-                    <label>lastname</label>
-                    <input required type="text" name="lastName" value={this.state.lastName} onChange={(e) => this.changeHandler(e)} />
+                        <label>lastname</label>
+                        <input required type="text" name="lastName" value={this.state.lastName} onChange={(e) => this.changeHandler(e)} />
 
-                    <label>mobile</label>
-                    <input required type="text" name="mobile" value={this.state.mobile} onChange={(e) => this.changeHandler(e)} />
+                        <label>mobile</label>
+                        <input required type="text" name="mobile" value={this.state.mobile} onChange={(e) => this.changeHandler(e)} />
 
-                    <button type="sumbit" value="Submit">Submit</button>
-                </form>
+                        <button type="sumbit" value="Submit">Submit</button>
+                    </form>
 
-            </div>
+                </div>
+            </BasicLayout>
         )
     }
 }
