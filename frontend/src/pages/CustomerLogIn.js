@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { login, getCustomer } from "../utils/auth"
+import BasicLayout from '../layout/BasicLayout'
 
 export default class CustomerLogIn extends Component {
     constructor(props) {
@@ -19,21 +20,29 @@ export default class CustomerLogIn extends Component {
         this.submitHandler = (e) => {
             e.preventDefault()
             login(this.state.email, this.state.password)
-            this.props.history.push('/')
+                .then((response) => {
+                    debugger
+                    this.props.history.push('/')
+                })
+                .catch((error) => {
+
+                })
         }
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <label>email</label>
-                    <input required type="text" name="email" value={this.state.email} onChange={(e) => this.changeHandler(e)} />
+            <BasicLayout>
+                <div>
+                    <form onSubmit={this.submitHandler}>
+                        <label>email</label>
+                        <input required type="text" name="email" value={this.state.email} onChange={(e) => this.changeHandler(e)} />
 
-                    <label>password</label>
-                    <input required type="text" name="password" value={this.state.password} onChange={(e) => this.changeHandler(e)} />
-                    <button type="submit" Value="Submit">submit</button>
-                </form>
-            </div>
+                        <label>password</label>
+                        <input required type="text" name="password" value={this.state.password} onChange={(e) => this.changeHandler(e)} />
+                        <button type="submit" Value="Submit">submit</button>
+                    </form>
+                </div>
+            </BasicLayout>
         )
     }
 }

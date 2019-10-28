@@ -14,32 +14,10 @@ import { getProfessional, getCustomer, logout } from "./utils/auth";
 import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      professional: getProfessional(),
-      customer: getCustomer()
-    }
-    this.logoutUser = this.logoutUser.bind(this)
-  }
-
-  logoutUser() {
-    logout()
-    this.setState({
-      professional: null,
-      customer: null
-    });
-    history.push('/home')
-  }
 
   render() {
     return (
       <>
-        <ProNav
-          logoutUser={this.logoutUser}
-          professional={this.state.professional}
-          customer={this.state.customer}
-        />
         <Switch>
           <Route exact path="/" component={Home} />
 

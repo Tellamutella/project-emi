@@ -4,6 +4,7 @@ import { getUser, getCustomer } from "../utils/auth"
 import { Link } from "react-router-dom";
 import "./CusProject.scss"
 import ProNav from "../components/ProNav"
+import BasicLayout from '../layout/BasicLayout';
 
 export default class CustomerProject extends Component {
 
@@ -36,21 +37,23 @@ export default class CustomerProject extends Component {
 
     render() {
         return (
-            <>
-                <div className="CusPro">
-                    {this.state.filteredProjects.map((project) =>
-                        <div className="CusProBox">
-                            <div className="CusProBoxDiv">
-                                <h2>{project.title}</h2>
-                                <p>Quotes received: {project.quotes.length}</p>
+            <BasicLayout>
+                <>
+                    <div className="CusPro">
+                        {this.state.filteredProjects.map((project) =>
+                            <div className="CusProBox">
+                                <div className="CusProBoxDiv">
+                                    <h2>{project.title}</h2>
+                                    <p>Quotes received: {project.quotes.length}</p>
+                                </div>
+                                <Link to={`/customer/projects/${project._id}`}>
+                                    <button>Check quotes</button>
+                                </Link>
                             </div>
-                            <Link to={`/customer/projects/${project._id}`}>
-                                <button>Check quotes</button>
-                            </Link>
-                        </div>
-                    )}
-                </div>
-            </>
+                        )}
+                    </div>
+                </>
+            </BasicLayout>
         )
     }
 }
