@@ -1,34 +1,39 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const professionalSchema = new mongoose.Schema({
+const professionalSchema = new mongoose.Schema(
+  {
     password: {
-        type: String,
-        // require: true
+      type: String
+      // require: true
     },
     firstName: {
-        type: String,
-        // require: true
+      type: String
+      // require: true
     },
     lastName: {
-        type: String,
-        // require: true
+      type: String
+      // require: true
     },
     email: {
-        type: String,
-        // require: true
+      type: String
+      // require: true
     },
     mobile: {
-        type: String,
-        // require: true
+      type: String
+      // require: true
     },
     image: {
-        type: String,
-        // require: true
+      type: String
+      // require: true
+    },
+    category: {
+      type: String
+      // require: true
     }
-},
-    { timestamps: true }
-)
+  },
+  { timestamps: true }
+);
 
-const Professional = mongoose.model('professional', professionalSchema);
+const Professional = mongoose.model("professional", professionalSchema);
 
 module.exports = Professional;
