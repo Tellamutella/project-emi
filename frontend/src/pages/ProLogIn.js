@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import qs from "qs";
 import { prologin } from "../utils/auth"
+import BasicLayout from "../layout/BasicLayout";
 
 export default class ProLogIn extends Component {
   constructor(props) {
@@ -20,8 +21,15 @@ export default class ProLogIn extends Component {
 
     this.submitHandler = event => {
       event.preventDefault();
+      debugger
       prologin(this.state.email, this.state.password)
-      this.props.history.push('/');
+        .then((response) => {
+          debugger
+          this.props.history.push('/');
+        })
+        .catch((error) => {
+          // handle login error
+        })
       // axios({
       //   url: "http://localhost:5000/api/professional/login",
       //   method: "POST",
@@ -42,31 +50,33 @@ export default class ProLogIn extends Component {
   }
   render() {
     return (
-      <div>
-        <form onSubmit={this.submitHandler}>
-          <label>email</label>
-          <input
-            required
-            type="text"
-            name="email"
-            value={this.state.email}
-            onChange={e => this.changeHandler(e)}
-          />
+      <BasicLayout>
+        <div>
+          <form onSubmit={this.submitHandler}>
+            <label>email</label>
+            <input
+              required
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={e => this.changeHandler(e)}
+            />
 
-          <label>password</label>
-          <input
-            required
-            type="text"
-            name="password"
-            value={this.state.password}
-            onChange={e => this.changeHandler(e)}
-          />
+            <label>password</label>
+            <input
+              required
+              type="text"
+              name="password"
+              value={this.state.password}
+              onChange={e => this.changeHandler(e)}
+            />
 
-          <button type="sumbit" value="Submit">
-            Submit
+            <button type="sumbit" value="Submit">
+              Submit
           </button>
-        </form>
-      </div>
+          </form>
+        </div>
+      </BasicLayout>
     );
   }
 }
