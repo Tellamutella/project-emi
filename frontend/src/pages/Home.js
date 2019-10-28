@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import "../Home.scss";
-import dogwalker from "../images/dogwalker";
+import "./Home.scss";
 import dogsitter from "../images/dogsitter.svg";
-import personaltrainer from "../images/personaltrainer.svg"
 import BasicLayout from "../layout/BasicLayout"
 const Home = () => {
 

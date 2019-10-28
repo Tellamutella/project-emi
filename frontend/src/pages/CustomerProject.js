@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { getUser, getCustomer } from "../utils/auth"
 import { Link } from "react-router-dom";
 import "./CusProject.scss"
-import ProNav from "../components/ProNav"
 import BasicLayout from '../layout/BasicLayout';
 import { getProjects } from "../utils/projects";
 
