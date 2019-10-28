@@ -4,22 +4,44 @@ import Home from "./pages/Home";
 import ProSignUp from "./pages/ProSignUp";
 import ProNav from "./components/ProNav";
 import ProLogIn from "./pages/ProLogIn";
-import ProProjects from "./pages/ProProject";
+import ProProjects from "./pages/proproject/ProProject";
 import CustomerSignUp from "./pages/CustomerSignUp";
 import CustomerLogIn from "./pages/CustomerLogIn";
 import CustomerProject from "./pages/CustomerProject";
 import CustomerProQuotes from "./pages/CustomerProQuotes";
 import ProjectDetails from "./pages/professional/ProjectDetails";
 import { getProfessional, getCustomer, logout } from "./utils/auth";
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      professional: getProfessional(),
+      customer: getCustomer()
+    };
+    this.logoutUser = this.logoutUser.bind(this);
+  }
 
+  logoutUser() {
+    logout();
+    this.setState({
+      professional: null,
+      customer: null
+    });
+    history.push("/home");
+  }
+  
   render() {
     return (
       <>
+        <ProNav
+          logoutUser={this.logoutUser}
+          professional={this.state.professional}
+          customer={this.state.customer}
+        />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
 
           <Route
             path="/professional/projects/details/m/:id"
