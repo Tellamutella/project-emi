@@ -3,7 +3,7 @@ import "../Home.scss";
 import dogwalker from "../images/dogwalker";
 import dogsitter from "../images/dogsitter.svg";
 import personaltrainer from "../images/personaltrainer.svg"
-import BasicLayout from "../layout/BasicLayout";
+import BasicLayout from "../layout/BasicLayout"
 const Home = () => {
 
   debugger

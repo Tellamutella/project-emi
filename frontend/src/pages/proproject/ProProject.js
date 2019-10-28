@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, Route } from "react-router-dom";
 import ProjectDetails from "../professional/ProjectDetails";
 import "./ProProject.scss";
-import BasicLayout from "../layout/BasicLayout";
+import BasicLayout from "../../layout/BasicLayout";
 
 export default class ProProjects extends Component {
   constructor() {
