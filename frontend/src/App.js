@@ -35,13 +35,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <ProNav
-          logoutUser={this.logoutUser}
-          professional={this.state.professional}
-          customer={this.state.customer}
-        />
         <Switch>
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
 
           <Route
             path="/professional/projects/details/m/:id"

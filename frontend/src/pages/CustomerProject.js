@@ -25,7 +25,7 @@ export default class CustomerProject extends Component {
     componentDidMount() {
 
         getProjects()
-            .then((projects) => {
+            .then((project) => {
                 this.setState({ projects: project.data })
                 this.filterProject(project.data)
             })
