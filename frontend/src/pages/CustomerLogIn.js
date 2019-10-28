@@ -19,7 +19,7 @@ export default class CustomerLogIn extends Component {
         this.submitHandler = (e) => {
             e.preventDefault()
             login(this.state.email, this.state.password)
-            this.props.history.push('/home')
+            this.props.history.push('/')
         }
     }
     render() {

@@ -19,7 +19,7 @@ class ProNav extends Component {
             if (this.props.professional) {
                 return (
                     <div className="ProNav">
-                        <Link to={`/home`}><img src={emilogo} alt="" /></Link>
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
                         <div className="ProNav-Conditional">
                             <Link to={`/professional/projects`}>All Projects</Link>
                             <Link to={`/professional/profile`}>pro profile</Link>
@@ -31,7 +31,7 @@ class ProNav extends Component {
             else if (this.props.customer) {
                 return (
                     <div className="ProNav">
-                        <Link to={`/home`}><img src={emilogo} alt="" /></Link>
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
                         <div className="ProNav-Conditional">
                             <Link to={`/customer/projects`}>Cus Project</Link>
                             <p onClick={this.props.logoutUser}>LogOut</p>
@@ -42,7 +42,7 @@ class ProNav extends Component {
             else {
                 return (
                     <div className="ProNav">
-                        <Link to={`/home`}><img src={emilogo} alt="" /></Link>
+                        <Link to={`/`}><img src={emilogo} alt="" /></Link>
                         <div className="ProNav-Conditional">
                             <Link to={`/professional/signup`}>Pro Sign Up</Link>
                             <Link to={`/professional/login`}>Pro Login</Link>

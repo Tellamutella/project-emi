@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import ProSignUp from "./pages/ProSignUp";
 import ProNav from "./components/ProNav";
@@ -40,20 +40,21 @@ class App extends Component {
           professional={this.state.professional}
           customer={this.state.customer}
         />
+        <Switch>
+          <Route exact path="/" component={Home} />
 
-        <Route path="/home" component={Home} />
-      
-              <Route
-          path="/professional/projects/details/m/:id"
-          render={props => <ProjectDetails {...props} />}
-        />
-        <Route path="/professional/signup" component={ProSignUp} />
-        <Route path="/professional/login" component={ProLogIn} />
-        <Route path="/professional/projects" component={ProProjects} />
-        <Route exact path="/customer/signup" component={CustomerSignUp} />
-        <Route path="/customer/login" component={CustomerLogIn} />
-        <Route exact path="/customer/projects" component={CustomerProject} />
-        <Route path="/customer/projects/:id" component={CustomerProQuotes} />
+          <Route
+            path="/professional/projects/details/m/:id"
+            render={props => <ProjectDetails {...props} />}
+          />
+          <Route path="/professional/signup" component={ProSignUp} />
+          <Route path="/professional/login" component={ProLogIn} />
+          <Route path="/professional/projects" component={ProProjects} />
+          <Route exact path="/customer/signup" component={CustomerSignUp} />
+          <Route path="/customer/login" component={CustomerLogIn} />
+          <Route exact path="/customer/projects" component={CustomerProject} />
+          <Route path="/customer/projects/:id" component={CustomerProQuotes} />
+        </Switch>
       </>
     );
   }
