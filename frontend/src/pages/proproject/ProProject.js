@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link, Route } from "react-router-dom";
-import ProjectDetails from "./professional/ProjectDetails";
+import ProjectDetails from "../professional/ProjectDetails";
 import "./ProProject.scss";
 
 export default class ProProjects extends Component {
@@ -35,7 +35,7 @@ export default class ProProjects extends Component {
   }
 
   updatePredicate() {
-    this.setState({ isDesktop: window.innerWidth > 500 });
+    this.setState({ isDesktop: window.innerWidth > 750 });
   }
 
   render() {

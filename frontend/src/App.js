@@ -1,35 +1,35 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import ProSignUp from "./pages/ProSignUp";
 import ProNav from "./components/ProNav";
 import ProLogIn from "./pages/ProLogIn";
-import ProProjects from "./pages/ProProject";
+import ProProjects from "./pages/proproject/ProProject";
 import CustomerSignUp from "./pages/CustomerSignUp";
 import CustomerLogIn from "./pages/CustomerLogIn";
 import CustomerProject from "./pages/CustomerProject";
 import CustomerProQuotes from "./pages/CustomerProQuotes";
 import ProjectDetails from "./pages/professional/ProjectDetails";
 import { getProfessional, getCustomer, logout } from "./utils/auth";
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       professional: getProfessional(),
       customer: getCustomer()
-    }
-    this.logoutUser = this.logoutUser.bind(this)
+    };
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
   logoutUser() {
-    logout()
+    logout();
     this.setState({
       professional: null,
       customer: null
     });
-    history.push('/home')
+    history.push("/home");
   }
 
   render() {
@@ -40,20 +40,21 @@ class App extends Component {
           professional={this.state.professional}
           customer={this.state.customer}
         />
+        <Switch>
+          <Route path="/home" component={Home} />
 
-        <Route path="/home" component={Home} />
-      
-              <Route
-          path="/professional/projects/details/m/:id"
-          render={props => <ProjectDetails {...props} />}
-        />
-        <Route path="/professional/signup" component={ProSignUp} />
-        <Route path="/professional/login" component={ProLogIn} />
-        <Route path="/professional/projects" component={ProProjects} />
-        <Route exact path="/customer/signup" component={CustomerSignUp} />
-        <Route path="/customer/login" component={CustomerLogIn} />
-        <Route exact path="/customer/projects" component={CustomerProject} />
-        <Route path="/customer/projects/:id" component={CustomerProQuotes} />
+          <Route
+            path="/professional/projects/details/m/:id"
+            render={props => <ProjectDetails {...props} />}
+          />
+          <Route path="/professional/signup" component={ProSignUp} />
+          <Route path="/professional/login" component={ProLogIn} />
+          <Route path="/professional/projects" component={ProProjects} />
+          <Route exact path="/customer/signup" component={CustomerSignUp} />
+          <Route path="/customer/login" component={CustomerLogIn} />
+          <Route exact path="/customer/projects" component={CustomerProject} />
+          <Route path="/customer/projects/:id" component={CustomerProQuotes} />
+        </Switch>
       </>
     );
   }
