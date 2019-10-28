@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./CusProject.scss"
 import ProNav from "../components/ProNav"
 import BasicLayout from '../layout/BasicLayout';
+import { getProjects } from "../utils/projects";
 
 export default class CustomerProject extends Component {
 
@@ -22,17 +23,16 @@ export default class CustomerProject extends Component {
 
 
     componentDidMount() {
-        axios({
-            method: "GET",
-            url: "http://localhost:5000/api/projects"
-        })
-            .then((project) => {
+
+        getProjects()
+            .then((projects) => {
                 this.setState({ projects: project.data })
                 this.filterProject(project.data)
             })
             .catch((err) => {
-                this.setState(err)
+                console.log(err)
             })
+
     }
 
     render() {

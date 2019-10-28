@@ -23,6 +23,11 @@ export const getProfessional = function () {
   return JSON.parse(localStorage.getItem("professional"))
 }
 
+export const clearUser = function () {
+  localStorage.removeItem("professional");
+  localStorage.removeItem("customer");
+}
+
 export const login = function (email, password) {
   return axios({
     url: "http://localhost:5000/api/customer/login",
@@ -57,11 +62,11 @@ export const logout = function () {
   return axios
     .get("http://localhost:5000/api/logout")
     .then(res => {
-      localStorage.removeItem("professional");
-      localStorage.removeItem("customer");
+      clearUser()
       console.log("logged out");
     })
     .catch(err => {
       console.log(err);
     });
 };
+
