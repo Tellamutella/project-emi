@@ -26,8 +26,18 @@ router.post("/customer/signup", (req, res, next) => {
               lastname: lastname,
               mobile: mobile
             })
-              .then(user => {
-                res.send({ user });
+              .then(customer => {
+                chatkit.createUser({
+                  id: customer.id,
+                  name: customer.firstname
+                })
+                  .then(() => {
+                    res.json(customer)
+                    console.log('Customer created sucessfully in mongoDB and Chatkit')
+                  })
+                  .catch((err) => {
+                    console.log(err)
+                  })
               })
               .catch(err => {
                 res.send(err);

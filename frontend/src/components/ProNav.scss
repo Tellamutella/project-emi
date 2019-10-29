@@ -1,6 +1,6 @@
 .ProNav {
-    background:#3BC9DB;
-    height: 100px;
+    background:#d1f2ee;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     width: 100vw;
@@ -20,10 +20,11 @@
     letter-spacing: 1px;
     font-weight: 800;
     text-decoration: none;
-    color: white;
+    color: #0eb6a8;
 }
 
 .ProNav img {
-    height: 70px;
+    height: 50px;
+    margin: 0 0 0 30px;
     width: auto;
 }

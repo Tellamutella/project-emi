@@ -25,10 +25,18 @@ router.post("/professional/signup", (req, res, next) => {
                             lastName: lastName,
                             mobile: mobile
                         })
-                            .then((res) => {
-                                // console.log("User created!" + result);
-                                // res.send("")
-                                res.end()
+                            .then((pro) => {
+                                chatkit.createUser({
+                                    id: pro.id,
+                                    name: pro.firstName
+                                })
+                                    .then(() => {
+                                        console.log('Professional created successfully in MongoDB and Chatkit')
+                                        res.end()
+                                    })
+                                    .catch((err) => {
+                                        console.log(err);
+                                    })
                             })
                             .catch((err) => {
                                 res.send(err);

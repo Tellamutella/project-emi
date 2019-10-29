@@ -1,28 +1,40 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 import axios from 'axios'
 import "./CustomerProQuotes.scss"
 import BasicLayout from '../layout/BasicLayout'
+import { getSingleProject } from '../utils/projects'
+import { login, getCustomer } from '../utils/auth'
 
 export default class CustomerProQuotes extends Component {
-
-    state = {
-        project: null
+    constructor(props) {
+        super(props)
+        this.state = {
+            project: null,
+            customer: getCustomer(),
+        }
+        this.handlelogin = this.handlelogin.bind(this);
     }
+
+
+    handlelogin(customerId, professionalId) {
+        this.props.history.push(`/customer/chat/${customerId}/${professionalId}`)
+    }
+
     componentDidMount() {
+
         var projectId = this.props.match.params.id
-        axios({
-            url: `http://localhost:5000/api/customer/projects/${projectId}`,
-            method: "GET"
-        })
-            .then((res) => {
-                this.setState({ project: res.data });
+        getSingleProject(projectId)
+            .then((response) => {
+                this.setState({ project: response.data })
             })
-            .catch((err) => {
-                console.log(err)
+            .catch((error) => {
+                console.log(error)
             })
     }
 
     render() {
+        const customerId = this.state.customer.id
         return (
             <BasicLayout>
                 <div>
@@ -40,12 +52,11 @@ export default class CustomerProQuotes extends Component {
                                         <p>Price: ${quote.hourlyPrice}/hour</p>
                                         <p>{quote.description}</p>
                                     </div>
-                                    <button>Chat</button>
+                                    <button onClick={() => { this.handlelogin(customerId, quote.professional._id) }}>Chat</button>
                                 </div>
                             )}
                         </div>
                     }
-
                 </div>
             </BasicLayout>
         )

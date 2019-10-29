@@ -27,9 +27,7 @@ class ProNav extends Component {
     }
 
     render() {
-        debugger
-        // console.log(this.props.customer)
-        // console.log(getCustomer())
+
         {
             if (this.state.professional) {
                 return (

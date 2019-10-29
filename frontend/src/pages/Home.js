@@ -6,7 +6,6 @@ import personaltrainer from "../images/personaltrainer.svg"
 import BasicLayout from "../layout/BasicLayout"
 const Home = () => {
 
-  debugger
   return (
     <BasicLayout>
       <div className="home">

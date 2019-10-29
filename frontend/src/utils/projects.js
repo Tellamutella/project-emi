@@ -23,3 +23,18 @@ export const getProjects = function () {
 
         })
 }
+
+export const getSingleProject = function (projectId) {
+    return axios({
+        method: "GET",
+        url: `http://localhost:5000/api/customer/projects/${projectId}`
+    })
+        .then((response) => {
+            return response
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+}
+
+

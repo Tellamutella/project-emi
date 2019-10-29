@@ -21,7 +21,6 @@ export default class CustomerLogIn extends Component {
             e.preventDefault()
             login(this.state.email, this.state.password)
                 .then((response) => {
-                    debugger
                     this.props.history.push('/')
                 })
                 .catch((error) => {

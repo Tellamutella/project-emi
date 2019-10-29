@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
@@ -7,6 +9,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
+const Chatkit = require('@pusher/chatkit-server')
 
 var app = express();
 
@@ -14,7 +17,7 @@ mongoose
   .connect(`mongodb://localhost/emi-project`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify:false
+    useFindAndModify: false
   })
   .then(x => {
     console.log(
@@ -57,6 +60,12 @@ app.use(
     origin: ["http://localhost:3000"]
   })
 );
+
+
+global.chatkit = new Chatkit.default({
+  instanceLocator: process.env.CHATKIT_INSTANCE,
+  key: process.env.SECURE_KEY,
+})
 
 app.use("/api", require("./routes/auth/customer"));
 
