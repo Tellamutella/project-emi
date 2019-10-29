@@ -46,22 +46,22 @@ export default class Home extends Component {
                 <h1>Field</h1>
               </>
             ) : (
-              <>
-                <h1> and im looking for</h1>
-                <select
-                  className="selection"
-                  value={this.state.input}
-                  onChange={this.handleInput}
-                >
-                  <option value="IT">IT</option>
-                  <option value="Pet">Pet</option>
-                  <option value="Home Services">Home Services</option>
-                  <option value="Fitness">Fitness</option>
-                </select>
-                <h1>Services</h1>
-                <button>Get A Quote</button>
-              </>
-            )}
+                <>
+                  <h1> and im looking for</h1>
+                  <select
+                    className="selection"
+                    value={this.state.input}
+                    onChange={this.handleInput}
+                  >
+                    <option value="IT">IT</option>
+                    <option value="Pet">Pet</option>
+                    <option value="Home Services">Home Services</option>
+                    <option value="Fitness">Fitness</option>
+                  </select>
+                  <h1>Services</h1>
+                  <button>Get A Quote</button>
+                </>
+              )}
           </div>
         </div>
       </BasicLayout>

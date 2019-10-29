@@ -60,23 +60,29 @@ class CustomerSignUp extends Component {
         url: "http://localhost:5000/api/customer/signup"
       })
         .then(response => {
-          axios({
+          debugger
+          return axios({
             method: "POST",
             data: {
               category,
               description,
               title,
-              customer: response.data.user._id
+              customer: response.data._id
             },
             url: "http://localhost:5000/api/projects/create"
           })
             .then(res => {
+              localStorage.setItem("customer", JSON.stringify(res.data));
+            })
+            .then(() => {
               this.props.history.push("/");
+            })
+            .catch((err) => {
+              console.log(err);
             })
             .catch(err => {
               console.log(err);
             });
-          localStorage.setItem("customer", JSON.stringify(response.data.user));
         })
         .catch(err => {
           console.log(err);
