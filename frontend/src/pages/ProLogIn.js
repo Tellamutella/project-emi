@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
-import qs from "qs";
-import { prologin } from "../utils/auth"
+import { prologin } from "../utils/auth";
 import BasicLayout from "../layout/BasicLayout";
+import "./ProLogin.scss";
 
 export default class ProLogIn extends Component {
   constructor(props) {
@@ -21,39 +20,24 @@ export default class ProLogIn extends Component {
 
     this.submitHandler = event => {
       event.preventDefault();
-      debugger
+      debugger;
       prologin(this.state.email, this.state.password)
-        .then((response) => {
-          debugger
-          this.props.history.push('/');
+        .then(response => {
+          debugger;
+          this.props.history.push("/");
         })
-        .catch((error) => {
+        .catch(error => {
           // handle login error
-        })
-      // axios({
-      //   url: "http://localhost:5000/api/professional/login",
-      //   method: "POST",
-      //   data: qs.stringify(this.state),
-      //   headers: {
-      //     "Content-Type": "application/x-www-form-urlencoded"
-      //   }
-      // })
-      //   .then(pro => {
-      //     localStorage.setItem("user", JSON.stringify(pro.data));
-      //     this.props.history.push(`/`);
-      //     console.log(pro.data);
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //   });
+        });
     };
   }
   render() {
     return (
       <BasicLayout>
-        <div>
-          <form onSubmit={this.submitHandler}>
-            <label>email</label>
+        <div className="prologin-container">
+          <form onSubmit={this.submitHandler} className="prologin-form">
+            <h3>Welcome Back!</h3>
+            <label>Email</label>
             <input
               required
               type="text"
@@ -62,7 +46,7 @@ export default class ProLogIn extends Component {
               onChange={e => this.changeHandler(e)}
             />
 
-            <label>password</label>
+            <label>Password</label>
             <input
               required
               type="text"
@@ -72,8 +56,8 @@ export default class ProLogIn extends Component {
             />
 
             <button type="sumbit" value="Submit">
-              Submit
-          </button>
+              Login
+            </button>
           </form>
         </div>
       </BasicLayout>

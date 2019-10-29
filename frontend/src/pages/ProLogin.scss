@@ -1,0 +1,52 @@
+@import "./../assets/sharedStyles/breakpoints";
+
+.prologin-container {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.prologin-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #087285;
+  width: 60%;
+  height: 60%;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #087285 0.5px 0.5px 0.5px 0.5px;
+  @include breakpoint(medium) {
+    width: 40%;
+  }
+  @include breakpoint(large) {
+    width: 30%;
+  }
+
+  h3 {
+    color: #484848;
+  }
+  label {
+    align-self: flex-start;
+    text-indent: 45px;
+    color: #484848;
+  }
+  input {
+    border: 1px solid #087285;
+    border-radius: 3px;
+    width: 80%;
+    margin: 10px 0px;
+    height: 25px;
+  }
+  button {
+    width: 80%;
+    height: 30px;
+    background-color: #087285;
+    border-radius: 5px;
+    margin: 20px 0px;
+    color: white;
+    font-weight: bold;
+  }
+}
