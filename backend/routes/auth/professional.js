@@ -7,7 +7,7 @@ const Professional = require('../../models/professional')
 
 
 router.post("/professional/signup", (req, res, next) => {
-    const { email, password, firstName, lastName, mobile } = req.body;
+    const { email, password, firstName, lastName, mobile , category} = req.body;
 
     const bcryptSalt = 10;
     Professional.findOne({ email })
@@ -23,7 +23,8 @@ router.post("/professional/signup", (req, res, next) => {
                             password: hash,
                             firstName: firstName,
                             lastName: lastName,
-                            mobile: mobile
+                            mobile: mobile,
+                            category: category
                         })
                             .then((res) => {
                                 // console.log("User created!" + result);

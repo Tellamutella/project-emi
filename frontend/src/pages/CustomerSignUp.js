@@ -116,6 +116,8 @@ class CustomerSignUp extends Component {
     }
   };
 
+  handleSelect = event => this.setState({ category: event.target.value });
+
   handleNext = () => {
     this.setState({
       counter: this.state.counter + 1
@@ -140,98 +142,132 @@ class CustomerSignUp extends Component {
           <form onSubmit={this.handleSubmit} className="customer-form">
             {this.state.counter === 0 && (
               <>
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.title}
-                  name="title"
-                  placeholder="Enter Title"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.category}
-                  name="category"
-                  placeholder="Enter category"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.description}
-                  name="description"
-                  placeholder="Enter description"
-                />
+                <div className="form-input-container">
+                  <label>Title</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.title}
+                    name="title"
+                    placeholder="Enter Title"
+                  />
+                </div>
+                <div className="form-input-container">
+                  <label>Experts you are looking for</label>
+                  <select
+                    value={this.state.category}
+                    onChange={this.handleSelect}
+                  >
+                    <option value="IT">IT</option>
+                    <option selected value="Home Services">
+                      Home Services
+                    </option>
+                    <option value="Pet">Pet</option>
+                    <option value="Fitness">Fitness</option>
+                  </select>
+                </div>
+                <div className="form-input-container">
+                  <label>Description</label>
+                  <textarea
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.description}
+                    name="description"
+                    placeholder="Enter description"
+                  />
+                </div>
                 <button onClick={this.handleNext}>next</button>
               </>
             )}
             {this.state.counter === 1 && (
               <>
                 <button onClick={this.loginHandle}>have a account?</button>
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.email}
-                  name="email"
-                  placeholder="Enter Email"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.password}
-                  name="password"
-                  placeholder="password"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.firstname}
-                  name="firstname"
-                  placeholder="firstname"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.lastname}
-                  name="lastname"
-                  placeholder="lastname"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.mobile}
-                  name="mobile"
-                  placeholder="mobile"
-                />
+
+                <div className="form-input-signup">
+                  <label>Email</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.email}
+                    name="email"
+                    placeholder="Enter Email"
+                  />
+                </div>
+                <div className="form-input-signup">
+                  <label>Firstname</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.firstname}
+                    name="firstname"
+                    placeholder="firstname"
+                  />
+                </div>
+                <div className="form-input-signup">
+                  <label>Lastname</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.lastname}
+                    name="lastname"
+                    placeholder="lastname"
+                  />
+                </div>
+                <div className="form-input-signup">
+                  <label>Mobile</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.mobile}
+                    name="mobile"
+                    placeholder="mobile"
+                  />
+                </div>
+                <div className="form-input-signup">
+                  <label>Password</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="Password"
+                    value={this.state.password}
+                    name="password"
+                    placeholder="password"
+                  />
+                </div>
                 <button onClick={this.handleBack}>back</button>
                 <button type="submit">Submit</button>
               </>
             )}
             {this.state.counter === 2 && (
               <>
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.loginEmail}
-                  name="loginEmail"
-                  placeholder="Enter Email"
-                />
-                <input
-                  required
-                  onChange={this.inputEvent}
-                  type="text"
-                  value={this.state.loginPassword}
-                  name="loginPassword"
-                  placeholder="password"
-                />
+                <div className="form-input-signup">
+                  <label>Lastname</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.loginEmail}
+                    name="loginEmail"
+                    placeholder="Enter Email"
+                  />
+                </div>
+                <div className="form-input-signup">
+                  <label>Lastname</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.loginPassword}
+                    name="loginPassword"
+                    placeholder="password"
+                  />
+                </div>
                 <button onClick={this.handleBack}>back</button>
                 <button type="submit">Submit</button>
               </>
