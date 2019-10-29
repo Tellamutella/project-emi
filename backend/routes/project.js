@@ -7,15 +7,16 @@ const Quote = require("../models/quote")
 
 //POST route => to create a new project
 router.post("/projects/create", (req, res, next) => {
+  debugger
   Project.create({
     title: req.body.title,
     description: req.body.description,
     category: req.body.category,
     customer: mongoose.Types.ObjectId(req.body.customer)
   })
-    .then(res => {
+    .then(project => {
       console.log("project saved");
-      res.send({ res });
+      res.json({ ...project });
     })
     .catch(err => {
       res.json(err);

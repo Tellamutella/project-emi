@@ -1,0 +1,21 @@
+.NewProjectForm {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+
+    label {
+        font-size: 0.8rem;
+        color: #484848;
+        font-weight: 700;
+    }
+
+    input, select {
+        width: 100%;
+        height: 35px;
+        margin: 5px 0px;
+        border-radius: 3px;
+        border: 1px #087285 solid;
+        text-indent: 5px;
+    }
+}
+

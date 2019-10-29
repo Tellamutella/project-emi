@@ -20,10 +20,10 @@ export default class ProLogIn extends Component {
 
     this.submitHandler = event => {
       event.preventDefault();
-      debugger;
+
       prologin(this.state.email, this.state.password)
         .then(response => {
-          debugger;
+
           this.props.history.push("/");
         })
         .catch(error => {

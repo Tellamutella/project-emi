@@ -1,9 +1,25 @@
+@import "../assets/sharedStyles/breakpoints.scss";
+
+.CusProHeader {
+    font-size: 1.3rem;
+    color: #484848;
+    margin: 20px 0 0 20px;
+    letter-spacing: -0.5px;
+    font-weight:800;
+    @include breakpoint(small){
+        margin: 20px 0 0 40px;
+    }
+}
 .CusPro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 0 0 0;
+    padding: 10px 0 0 0;
+    @include breakpoint(small){
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
 }
 
@@ -17,9 +33,17 @@
     border-radius: 7px;
     margin: 10px 0px 0 0px;
     border: #d0f1ed solid 1px;
+    @include breakpoint(small){
+        width: 43%;
+        flex-direction: row;
+        margin: 15px 7px 0 7px;
+    }
+    @include breakpoint(medium){
+        width: 22%;
+    }
     h2 {
         color: #484848;
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin: 12px 0 5px 9px;
     }
     p{
@@ -33,10 +57,13 @@
         border: #087285;
         border-radius: 7px;
         padding: 7px 10px;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         font-weight: 600;
         text-transform: uppercase;
         color: white;
+        @include breakpoint(small){
+           margin: 0 7px 0 0;
+        }
     }
     .CusProBoxDiv {
         width: 200px;

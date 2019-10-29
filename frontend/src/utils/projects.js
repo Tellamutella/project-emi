@@ -1,7 +1,9 @@
 import axios from "axios";
 import { logout, clearUser } from "./auth";
+import qs from "qs";
 import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
+
 
 export const getProjects = function () {
     return axios({
@@ -31,6 +33,22 @@ export const getSingleProject = function (projectId) {
     })
         .then((response) => {
             return response
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+}
+
+export const newProject = function (category, description, title, customer) {
+    return axios({
+        method: "POST",
+        url: "http://localhost:5000/api/projects/create",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        data: qs.stringify({ category, description, title, customer })
+    })
+        .then((project) => {
+            debugger
+            return project
         })
         .catch((error) => {
             console.log(error)

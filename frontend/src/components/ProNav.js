@@ -48,7 +48,7 @@ class ProNav extends Component {
               <img src={emilogo} alt="" />
             </Link>
             <div className="ProNav-Conditional">
-              <Link to={`/customer/projects`}>Cus Project</Link>
+              <Link to={`/customer/projects`}>Your Projects</Link>
               <p onClick={this.logoutUser}>LogOut</p>
             </div>
           </div>

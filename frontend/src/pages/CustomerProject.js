@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./CusProject.scss";
 import BasicLayout from "../layout/BasicLayout";
 import { getProjects } from "../utils/projects";
+import NewProjectForm from "../components/NewProjectForm";
 
 export default class CustomerProject extends Component {
   state = {
@@ -34,6 +35,7 @@ export default class CustomerProject extends Component {
     return (
       <BasicLayout>
         <>
+          <h2 className="CusProHeader">Your Projects</h2>
           <div className="CusPro">
             {this.state.filteredProjects.map(project => (
               <div className="CusProBox">
@@ -47,6 +49,8 @@ export default class CustomerProject extends Component {
               </div>
             ))}
           </div>
+          <h2 className="CusProHeader">Look for new quotes!</h2>
+          <NewProjectForm />
         </>
       </BasicLayout>
     );
