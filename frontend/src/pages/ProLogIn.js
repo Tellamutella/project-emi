@@ -37,6 +37,7 @@ export default class ProLogIn extends Component {
         <div className="prologin-container">
           <form onSubmit={this.submitHandler} className="prologin-form">
             <h3>Welcome Back!</h3>
+            <h3>Signin as a Professional</h3>
             <label>Email</label>
             <input
               required

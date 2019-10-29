@@ -1,7 +1,7 @@
 import "./Home.scss";
-import dogsitter from "../images/dogsitter.svg";
 import BasicLayout from "../layout/BasicLayout";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Home extends Component {
   constructor(props) {
@@ -46,22 +46,30 @@ export default class Home extends Component {
                 <h1>Field</h1>
               </>
             ) : (
-                <>
-                  <h1> and im looking for</h1>
-                  <select
-                    className="selection"
-                    value={this.state.input}
-                    onChange={this.handleInput}
-                  >
-                    <option value="IT">IT</option>
-                    <option value="Pet">Pet</option>
-                    <option value="Home Services">Home Services</option>
-                    <option value="Fitness">Fitness</option>
-                  </select>
-                  <h1>Services</h1>
-                  <button>Get A Quote</button>
-                </>
-              )}
+              <>
+                <h1> and im looking for</h1>
+                <select
+                  className="selection"
+                  value={this.state.input}
+                  onChange={this.handleInput}
+                >
+                  <option value="IT">IT</option>
+                  <option value="Pet">Pet</option>
+                  <option value="Home Services">Home Services</option>
+                  <option value="Fitness">Fitness</option>
+                </select>
+                <h1>Services</h1>
+                <button>
+                  <Link
+                    to={{
+                      pathname: "/customer/signup",
+                      data: this.state.input // your data array of objects
+                    }}
+                  >Get a quote</Link>
+                  {/* <Link to={`/customer/signup`}>Get a Quote</Link> */}
+                </button>
+              </>
+            )}
           </div>
         </div>
       </BasicLayout>

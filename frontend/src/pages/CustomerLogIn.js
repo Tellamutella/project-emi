@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { login, getCustomer } from "../utils/auth"
 import BasicLayout from '../layout/BasicLayout'
+import "./ProLogin.scss";
 
 export default class CustomerLogIn extends Component {
     constructor(props) {
@@ -31,14 +32,16 @@ export default class CustomerLogIn extends Component {
     render() {
         return (
             <BasicLayout>
-                <div>
-                    <form onSubmit={this.submitHandler}>
-                        <label>email</label>
+                <div className="prologin-container">
+                    <form onSubmit={this.submitHandler} className="prologin-form">
+                    <h3>Welcome Back!</h3>
+                    <h3>Signin as a Customer</h3>
+                        <label>Email</label>
                         <input required type="text" name="email" value={this.state.email} onChange={(e) => this.changeHandler(e)} />
 
-                        <label>password</label>
+                        <label>Password</label>
                         <input required type="text" name="password" value={this.state.password} onChange={(e) => this.changeHandler(e)} />
-                        <button type="submit" Value="Submit">submit</button>
+                        <button type="submit" Value="Submit">Login</button>
                     </form>
                 </div>
             </BasicLayout>
