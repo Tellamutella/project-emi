@@ -3,16 +3,17 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const Project = require("../models/project");
-const Quote = require("../models/quote")
+const Quote = require("../models/quote");
 
 //POST route => to create a new project
 router.post("/projects/create", (req, res, next) => {
-  debugger
+  let splitTime = req.body.startDate.split("T")[0];
   Project.create({
     title: req.body.title,
     description: req.body.description,
     category: req.body.category,
-    customer: mongoose.Types.ObjectId(req.body.customer)
+    customer: mongoose.Types.ObjectId(req.body.customer),
+    date: splitTime
   })
     .then(project => {
       console.log("project saved");
@@ -45,21 +46,21 @@ router.get("/projects/:projectId", (req, res, next) => {
 });
 
 router.get("/customer/projects/:projectId", (req, res, next) => {
-  debugger
+  debugger;
   Project.findById(req.params.projectId)
     .populate({
-      path: 'quotes',
+      path: "quotes",
       populate: {
-        path: 'professional'
+        path: "professional"
       }
     })
     .then(project => {
-      debugger
+      debugger;
       res.send(project);
     })
     .catch(err => {
       res.send(err);
     });
-})
+});
 
 module.exports = router;

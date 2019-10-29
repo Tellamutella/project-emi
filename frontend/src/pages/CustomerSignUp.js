@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./CustomerSignUp.scss";
 import axios from "axios";
-import { setUser } from "../utils/auth";
 import BasicLayout from "../layout/BasicLayout";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class CustomerSignUp extends Component {
   constructor(props) {
@@ -15,10 +16,12 @@ class CustomerSignUp extends Component {
       mobile: "",
       counter: 0,
       title: "",
-      category: "",
+      location: "",
+      category: props.location.data || "Home Services",
       description: "",
       loginPassword: "",
-      loginEmail: ""
+      loginEmail: "",
+      startDate: new Date()
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +38,7 @@ class CustomerSignUp extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const {
+      startDate,
       mobile,
       email,
       firstname,
@@ -44,7 +48,8 @@ class CustomerSignUp extends Component {
       description,
       title,
       loginPassword,
-      loginEmail
+      loginEmail,
+      location
     } = this.state;
 
     if (this.state.counter === 1) {
@@ -67,14 +72,16 @@ class CustomerSignUp extends Component {
               category,
               description,
               title,
-              customer: response.data.id
+              customer: response.data.id,
+              startDate,
+              location,
             },
             url: "http://localhost:5000/api/projects/create"
           })
             .then((project) => {
               this.props.history.push("/");
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             })
         })
@@ -98,7 +105,9 @@ class CustomerSignUp extends Component {
               category,
               description,
               title,
-              customer: response.data.id
+              customer: response.data.id,
+              startDate,
+              location
             },
             url: "http://localhost:5000/api/projects/create"
           })
@@ -136,7 +145,14 @@ class CustomerSignUp extends Component {
     });
   };
 
+  handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
+
   render() {
+    console.log(this.props.location);
     return (
       <BasicLayout>
         <div className="customer-container">
@@ -155,6 +171,17 @@ class CustomerSignUp extends Component {
                   />
                 </div>
                 <div className="form-input-container">
+                  <label>Location</label>
+                  <input
+                    required
+                    onChange={this.inputEvent}
+                    type="text"
+                    value={this.state.location}
+                    name="location"
+                    placeholder="Enter location"
+                  />
+                </div>
+                <div className="form-input-container">
                   <label>Experts you are looking for</label>
                   <select
                     value={this.state.category}
@@ -168,6 +195,7 @@ class CustomerSignUp extends Component {
                     <option value="Fitness">Fitness</option>
                   </select>
                 </div>
+                <label>Pick a date</label>
                 <div className="form-input-container">
                   <label>Description</label>
                   <textarea
@@ -179,12 +207,25 @@ class CustomerSignUp extends Component {
                     placeholder="Enter description"
                   />
                 </div>
-                <button onClick={this.handleNext}>next</button>
+                <DatePicker
+                  className="date-picker"
+                  selected={this.state.startDate}
+                  onChange={this.handleChange}
+                  minDate={new Date()}
+                />
+                <button className="btn-customer-form" onClick={this.handleNext}>
+                  next
+                </button>
               </>
             )}
             {this.state.counter === 1 && (
               <>
-                <button onClick={this.loginHandle}>have a account?</button>
+                <button
+                  className="btn-customer-form"
+                  onClick={this.loginHandle}
+                >
+                  have a account?
+                </button>
 
                 <div className="form-input-signup">
                   <label>Email</label>
@@ -241,8 +282,10 @@ class CustomerSignUp extends Component {
                     placeholder="password"
                   />
                 </div>
-                <button onClick={this.handleBack}>back</button>
-                <button type="submit">Submit</button>
+                <div className="btn-container">
+                  <button onClick={this.handleBack}>back</button>
+                  <button type="submit">Submit</button>
+                </div>
               </>
             )}
             {this.state.counter === 2 && (
@@ -269,8 +312,10 @@ class CustomerSignUp extends Component {
                     placeholder="password"
                   />
                 </div>
-                <button onClick={this.handleBack}>back</button>
-                <button type="submit">Submit</button>
+                <div className="btn-container">
+                  <button onClick={this.handleBack}>back</button>
+                  <button type="submit">Submit</button>
+                </div>
               </>
             )}
           </form>

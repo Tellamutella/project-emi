@@ -7,7 +7,8 @@
 }
 
 .customer-form {
-  width: 400px;
+  margin-top: 50px;
+  width: 380px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -16,17 +17,23 @@
   label {
     font-size: 14px;
   }
-  button {
-    width: 60%;
-    height: 30px;
-    border-radius: 10px;
-    background-color: #087285;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-  }
   border: 1px #087285 solid;
-  height: 70vh;
+  height: 80vh;
+}
+
+.date-picker{
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+}
+.btn-customer-form {
+  width: 60%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #087285;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .form-input-container {
@@ -43,7 +50,7 @@
     text-indent: 5px;
   }
   textarea {
-    height: 100px;
+    height: 200px;
     border-radius: 5px;
     text-indent: 5px;
   }
@@ -67,5 +74,19 @@
     border-radius: 3px;
     border: 1px #087285 solid;
     text-indent: 5px;
+  }
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  button {
+    width: 100px;
+    cursor: pointer;
+    background-color: #087285;
+    color:white;
+    border-radius: 5px;
+    width: 40%;
+    height: 30px;
   }
 }

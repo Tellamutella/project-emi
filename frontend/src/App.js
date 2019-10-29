@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import ProSignUp from "./pages/ProSignUp";
-import ProLogIn from "./pages/ProLogIn";
+import ProLogIn from './pages/ProLogIn';
 import ProProjects from "./pages/proproject/ProProject";
 import CustomerSignUp from "./pages/CustomerSignUp";
 import CustomerLogIn from "./pages/CustomerLogIn";
