@@ -17,7 +17,7 @@ class CustomerSignUp extends Component {
       counter: 0,
       title: "",
       location: "",
-      category: "Home Services",
+      category: props.location.data || "Home Services",
       description: "",
       loginPassword: "",
       loginEmail: "",
@@ -157,6 +157,7 @@ class CustomerSignUp extends Component {
   };
 
   render() {
+    console.log(this.props.location);
     return (
       <BasicLayout>
         <div className="customer-container">
