@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
 import axios from 'axios'
 import "./CustomerProQuotes.scss"
 import BasicLayout from '../layout/BasicLayout'
 import { getSingleProject } from '../utils/projects'
 import { login, getCustomer } from '../utils/auth'
+
 
 export default class CustomerProQuotes extends Component {
     constructor(props) {
@@ -35,8 +36,10 @@ export default class CustomerProQuotes extends Component {
 
     render() {
         const customerId = this.state.customer.id
+
         return (
             <BasicLayout>
+
                 <div>
                     {this.state.project === null ?
                         <p>loading </p> :
@@ -58,6 +61,7 @@ export default class CustomerProQuotes extends Component {
                         </div>
                     }
                 </div>
+
             </BasicLayout>
         )
     }

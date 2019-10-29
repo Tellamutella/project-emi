@@ -13,7 +13,7 @@ router.post("/customer/signup", (req, res, next) => {
   Customer.findOne({ email: email })
     .then(customer => {
       if (customer) {
-        res.send("email already taken");
+        res.status(400).send("email already taken");
       } else {
         bcrypt.hash(password, 10, (err, hash) => {
           if (err) {
@@ -27,17 +27,25 @@ router.post("/customer/signup", (req, res, next) => {
               mobile: mobile
             })
               .then(customer => {
-                chatkit.createUser({
+                var customer = customer
+                return chatkit.createUser({
                   id: customer.id,
                   name: customer.firstname
                 })
                   .then(() => {
-                    res.json(customer)
-                    console.log('Customer created sucessfully in mongoDB and Chatkit')
+                    return customer
                   })
-                  .catch((err) => {
-                    console.log(err)
-                  })
+              })
+              .then((customer) => {
+                let { email, firstname, lastname, id } = customer;
+                let sessionData = { email, firstname, lastname, id };
+                req.session.customer = sessionData;
+                debugger
+                res.json(sessionData)
+                console.log('Customer created sucessfully in mongoDB and Chatkit')
+              })
+              .catch((err) => {
+                console.log(err)
               })
               .catch(err => {
                 res.send(err);
