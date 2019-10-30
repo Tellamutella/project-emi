@@ -1,21 +1,81 @@
+@import "../assets/sharedStyles/breakpoints.scss";
 .NewProjectForm {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f7f7;
+  padding: 25px;
+  border-radius: 10px;
+  @include breakpoint(small) {
+    width: 60%;
+  }
+  @include breakpoint(medium) {
+    width: 50%;
+  }
+  @include breakpoint(large) {
 
-    label {
-        font-size: 0.8rem;
-        color: #484848;
-        font-weight: 700;
-    }
+    width: 100%;
+  }
 
-    input, select {
-        width: 100%;
-        height: 35px;
-        margin: 5px 0px;
-        border-radius: 3px;
-        border: 1px #087285 solid;
-        text-indent: 5px;
-    }
 }
 
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  label {
+    width: 100%;
+  }
+  input {
+    width: 100%;
+    height: 35px;
+    margin: 5px 0px;
+    border-radius: 3px;
+    border: 1px #087285 solid;
+    text-indent: 5px;
+  }
+  select {
+    width: 100%;
+    height: 35px;
+    margin: 5px 0px;
+    border-radius: 3px;
+    border: 1px #087285 solid;
+    text-indent: 5px;
+  }
+  textarea {
+    width: 100%;
+    height: 150px;
+    margin: 5px 0px;
+    border-radius: 3px;
+    border: 1px #087285 solid;
+    text-indent: 5px;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  margin-top: 30px;
+  border-radius: 5px;
+  width: 100%;
+  @include breakpoint(large) {
+    display: block;
+    width: 30%;
+  }
+}
+
+.form-btn {
+  height: 35px;
+  margin: 15px 0px;
+  border-radius: 3px;
+  border: 1px #087285 solid;
+  width: 150px;
+  background-color: #087285;
+  color: white;
+  font-weight: bold;
+}

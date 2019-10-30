@@ -21,6 +21,10 @@ export default class CustomerProject extends Component {
   };
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = () => {
     getProjects()
       .then(project => {
         this.setState({ projects: project.data });
@@ -29,28 +33,28 @@ export default class CustomerProject extends Component {
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     return (
       <BasicLayout>
         <>
-          <h2 className="CusProHeader">Your Projects</h2>
-          <div className="CusPro">
-            {this.state.filteredProjects.map(project => (
-              <div className="CusProBox">
-                <div className="CusProBoxDiv">
-                  <h2>{project.title}</h2>
-                  <p>Quotes received: {project.quotes.length}</p>
+          <div className='main-container'>
+            <div className="CusPro">
+              {this.state.filteredProjects.map(project => (
+                <div className="CusProBox">
+                  <div className="CusProBoxDiv">
+                    <h2>{project.title}</h2>
+                    <p>Quotes received: {project.quotes.length}</p>
+                  </div>
+                  <Link to={`/customer/projects/${project._id}`}>
+                    <button>Check quotes</button>
+                  </Link>
                 </div>
-                <Link to={`/customer/projects/${project._id}`}>
-                  <button>Check quotes</button>
-                </Link>
-              </div>
-            ))}
+              ))}
+            </div>
+            <NewProjectForm fetchData={this.fetchData} />
           </div>
-          <h2 className="CusProHeader">Look for new quotes!</h2>
-          <NewProjectForm />
         </>
       </BasicLayout>
     );

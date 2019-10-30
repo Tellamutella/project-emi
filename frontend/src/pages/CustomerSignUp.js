@@ -74,16 +74,16 @@ class CustomerSignUp extends Component {
               title,
               customer: response.data.id,
               startDate,
-              location,
+              location
             },
             url: "http://localhost:5000/api/projects/create"
           })
-            .then((project) => {
+            .then(project => {
               this.props.history.push("/");
             })
             .catch(err => {
               console.log(err);
-            })
+            });
         })
         .catch(err => {
           // to do: handle error (also email already taken)
@@ -195,7 +195,6 @@ class CustomerSignUp extends Component {
                     <option value="Fitness">Fitness</option>
                   </select>
                 </div>
-                <label>Pick a date</label>
                 <div className="form-input-container">
                   <label>Description</label>
                   <textarea
@@ -207,6 +206,7 @@ class CustomerSignUp extends Component {
                     placeholder="Enter description"
                   />
                 </div>
+                <label>Pick a date</label>
                 <DatePicker
                   className="date-picker"
                   selected={this.state.startDate}

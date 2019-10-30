@@ -44,6 +44,16 @@ export default class Home extends Component {
                   <option value="Fitness">Fitness</option>
                 </select>
                 <h1>Field</h1>
+                <button>
+                  <Link
+                    to={{
+                      pathname: "/professional/signup",
+                      data: this.state.input
+                    }}
+                  >
+                    Register as a Pro Now!
+                  </Link>
+                </button>
               </>
             ) : (
               <>
@@ -63,10 +73,11 @@ export default class Home extends Component {
                   <Link
                     to={{
                       pathname: "/customer/signup",
-                      data: this.state.input // your data array of objects
+                      data: this.state.input
                     }}
-                  >Get a quote</Link>
-                  {/* <Link to={`/customer/signup`}>Get a Quote</Link> */}
+                  >
+                    Get a quote
+                  </Link>
                 </button>
               </>
             )}

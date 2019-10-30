@@ -5,8 +5,8 @@ import BasicLayout from "../layout/BasicLayout";
 import "./ProSignUp.scss";
 
 export default class ProSignUp extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       email: "",
@@ -14,10 +14,11 @@ export default class ProSignUp extends Component {
       lastName: "",
       password: "",
       mobile: "",
-      category: "Home Services"
+      category: props.location.data || "Home Services"
     };
 
-    this.handleSelect = event => this.setState({ category: event.target.value });
+    this.handleSelect = event =>
+      this.setState({ category: event.target.value });
 
     this.submitHandler = event => {
       event.preventDefault();

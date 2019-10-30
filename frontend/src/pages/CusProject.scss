@@ -1,71 +1,85 @@
 @import "../assets/sharedStyles/breakpoints.scss";
 
 .CusProHeader {
-    font-size: 1.3rem;
-    color: #484848;
-    margin: 20px 0 0 20px;
-    letter-spacing: -0.5px;
-    font-weight:800;
-    @include breakpoint(small){
-        margin: 20px 0 0 40px;
-    }
+  font-size: 1.3rem;
+  color: #484848;
+  margin: 20px 0 0 20px;
+  letter-spacing: -0.5px;
+  font-weight: 800;
+  @include breakpoint(small) {
+    margin: 20px 0 0 40px;
+  }
 }
 .CusPro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 0 0;
-    @include breakpoint(small){
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 0 0;
+  @include breakpoint(small) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @include breakpoint(large) {
+    width: 60%;
+  }
 }
 
 .CusProBox {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  height: 110px;
+  border-radius: 7px;
+  margin: 10px 0px 0 0px;
+  border: #d0f1ed solid 1px;
+  @include breakpoint(small) {
+    width: 43%;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 90vw;
-    height: 110px;
+    margin: 15px 7px 0 7px;
+  }
+  @include breakpoint(medium) {
+    width: 43%;
+  }
+  @include breakpoint(large) {
+    width: 40%;
+  }
+
+  h2 {
+    color: #484848;
+    font-size: 1rem;
+    margin: 12px 0 5px 9px;
+  }
+  p {
+    color: #484848;
+    margin: 10px 0 10px 9px;
+    font-size: 0.9rem;
+  }
+  button {
+    margin: 0px 20px;
+    background-color: #087285;
+    border: #087285;
     border-radius: 7px;
-    margin: 10px 0px 0 0px;
-    border: #d0f1ed solid 1px;
-    @include breakpoint(small){
-        width: 43%;
+    padding: 7px 10px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    width: 100px;
+  }
+  .CusProBoxDiv {
+    width: 40%;
+    word-wrap: break-word;
+  }
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    @include breakpoint(large) {
         flex-direction: row;
-        margin: 15px 7px 0 7px;
-    }
-    @include breakpoint(medium){
-        width: 22%;
-    }
-    h2 {
-        color: #484848;
-        font-size: 1rem;
-        margin: 12px 0 5px 9px;
-    }
-    p{
-        color: #484848;
-        margin: 10px 0 10px 9px;
-        font-size: 0.9rem;
-    }
-    button {
-        margin: 0 0 0 22px;
-        background-color: #087285;
-        border: #087285;
-        border-radius: 7px;
-        padding: 7px 10px;
-        font-size: 0.6rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: white;
-        @include breakpoint(small){
-           margin: 0 7px 0 0;
-        }
-    }
-    .CusProBoxDiv {
-        width: 200px;
-    }
+      }
 }
