@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { logout, getProfessional, getCustomer } from "../utils/auth";
 import { withRouter } from "react-router";
 import "./ProNav.scss";
-import emilogo from "../images/emilogo3";
+import emilogo from "../images/emilogo4";
 
 class ProNav extends Component {
   constructor(props) {

@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { getProfessional } from "../../utils/auth";
-import Prodetail from "./Prodetail";
+import Prodetail from "./Prodetails";
 import "./ProjectDetails.scss";
-import BasicLayout from "../../layout/BasicLayout";
+import ProfessionalChat from "../../components/ProfessionalChat"
+import { ChatkitProvider, TokenProvider } from '@pusher/chatkit-client-react';
+import { Route } from "react-router-dom";
+const tokenProvider = new TokenProvider({
+  url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/ad1a82fb-1e31-4c60-b09a-00df47ef2751/token",
+});
+const instanceLocator = "v1:us1:ad1a82fb-1e31-4c60-b09a-00df47ef2751";
+
 export default class ProjectDetails extends Component {
   state = {
     project: null,
@@ -17,11 +24,12 @@ export default class ProjectDetails extends Component {
   }
 
   fetchProjectDetails() {
-    axios({
+    return axios({
       method: "GET",
       url: `http://localhost:5000/api/projects/${this.props.match.params.id}`
     })
       .then(res => {
+        debugger
         let check = res.data.quotes.filter(
           element => element.professional === this.state.user.id
         );
@@ -38,6 +46,7 @@ export default class ProjectDetails extends Component {
             quote: null
           });
         }
+        return res.data
       })
       .catch(err => {
         console.log(err);
@@ -45,8 +54,18 @@ export default class ProjectDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id != this.props.match.params.id)
-      this.fetchProjectDetails();
+    debugger
+    if (prevProps.match.params.id != this.props.match.params.id) {
+      debugger
+      this.fetchProjectDetails()
+        .then((project) => {
+          let projectId = this.props.match.params.id;
+          let customerId = project.customer;
+          let professionalId = this.state.user.id;
+          this.props.history.push(`/professional/projects/details/${projectId}/${customerId}/${professionalId}`)
+        })
+    }
+
   }
 
   inputHandler = e => {
@@ -77,23 +96,41 @@ export default class ProjectDetails extends Component {
   };
 
   render() {
-    console.log(this.state.user.id)
-    return (
-      <BasicLayout>
-        <div className="project-detail-container">
-          {this.state.project ? (
-            <>
-              <Prodetail project={this.state.project} />
+    debugger
 
-              {this.state.quote ? (
+
+    return (
+
+      <div className="project-detail-container">
+        {this.state.project ? (
+          <>
+            <Prodetail project={this.state.project} />
+
+            {this.state.quote ? (
+              <>
                 <div className='project-detail-quoted'>
-                  <h4>Quoted hourlyPrice:</h4>
-                  <p>{this.state.quote.hourlyPrice}</p>
-                  <h4>Quoted description:</h4>
+                  <h3>Your submitted quote</h3>
+                  <h4>Quoted Price:</h4>
+                  <p>${this.state.quote.hourlyPrice}/hr</p>
+                  <h4>Quote Description:</h4>
                   <p>{this.state.quote.description}</p>
-                  <h4>im the Quoted part</h4>
+                  <h4>Project customer id</h4>
+                  <p>{this.state.project.customer}</p>
                 </div>
-              ) : (
+
+                <Route path="/professional/projects/details/:id/:customerId/:professionalId" render={props => (
+                  <ChatkitProvider
+                    {...props}
+                    instanceLocator={instanceLocator}
+                    tokenProvider={tokenProvider}
+                    userId={props.match.params.professionalId}>
+                    <ProfessionalChat otherUserId={props.match.params.customerId} />
+                  </ChatkitProvider>
+                )} />
+
+              </>
+            ) : (
+                <>
                   <form onSubmit={this.sumbitHandler}>
                     <input
                       placeholder="Price per hour"
@@ -111,16 +148,17 @@ export default class ProjectDetails extends Component {
                     />
                     <button type="submit"> Sumbit Quote</button>
                   </form>
-                )}
-            </>
-          ) : (
-              <div className="loading">
-                <h1>LOADING!!!</h1>
-              </div>
-            )}
+                </>
+              )}
+          </>
+        ) : (
+            <div className="loading">
+              <h1>LOADING!!!</h1>
+            </div>
+          )}
 
-        </div>
-      </BasicLayout>)
+      </div>
+    )
   }
 }
 

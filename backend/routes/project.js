@@ -13,7 +13,8 @@ router.post("/projects/create", (req, res, next) => {
     description: req.body.description,
     category: req.body.category,
     customer: mongoose.Types.ObjectId(req.body.customer),
-    date: splitTime
+    date: splitTime,
+    location: req.body.location
   })
     .then(project => {
       console.log("project saved");

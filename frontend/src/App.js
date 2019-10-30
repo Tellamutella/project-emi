@@ -9,7 +9,7 @@ import CustomerLogIn from "./pages/CustomerLogIn";
 import CustomerProject from "./pages/CustomerProject";
 import CustomerProQuotes from "./pages/CustomerProQuotes";
 import ProjectDetails from "./pages/professional/ProjectDetails";
-import Chat from "./pages/Chat"
+import Chat from "./components/Chat"
 import { ChatkitProvider, TokenProvider } from '@pusher/chatkit-client-react';
 
 require('dotenv').config();
@@ -65,8 +65,9 @@ function App() {
             <Chat otherUserId={props.match.params.professionalId} />
           </ChatkitProvider>
         )}>
-
         </Route>
+
+
 
 
       </Switch>
