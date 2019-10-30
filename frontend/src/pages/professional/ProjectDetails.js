@@ -28,8 +28,7 @@ export default class ProjectDetails extends Component {
       method: "GET",
       url: `http://localhost:5000/api/projects/${this.props.match.params.id}`
     })
-      .then(res => {
-        debugger
+      .then(res => {    
         let check = res.data.quotes.filter(
           element => element.professional === this.state.user.id
         );
@@ -54,9 +53,9 @@ export default class ProjectDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger
+    
     if (prevProps.match.params.id != this.props.match.params.id) {
-      debugger
+      
       this.fetchProjectDetails()
         .then((project) => {
           let projectId = this.props.match.params.id;
@@ -96,7 +95,7 @@ export default class ProjectDetails extends Component {
   };
 
   render() {
-    debugger
+    
 
 
     return (
@@ -167,7 +166,7 @@ export default class ProjectDetails extends Component {
 //   let filterproject = props.projects.filter(
 //     project => project._id === projectId
 //   )[0];
-//     debugger
+//     
 //   return (
 //     <>
 //     {props.projects.length ?

@@ -2,6 +2,7 @@ import "./Home.scss";
 import BasicLayout from "../layout/BasicLayout";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import dogImg from '../images/undraw_team_spirit_hrr4.svg'
 
 export default class Home extends Component {
   constructor(props) {
@@ -82,6 +83,7 @@ export default class Home extends Component {
               </>
             )}
           </div>
+                  <img className='dogImg' src={dogImg} />
         </div>
       </BasicLayout>
     );
