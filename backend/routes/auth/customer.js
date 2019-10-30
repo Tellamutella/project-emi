@@ -40,7 +40,6 @@ router.post("/customer/signup", (req, res, next) => {
                 let { email, firstname, lastname, id } = customer;
                 let sessionData = { email, firstname, lastname, id };
                 req.session.customer = sessionData;
-                debugger
                 res.json(sessionData)
                 console.log('Customer created sucessfully in mongoDB and Chatkit')
               })

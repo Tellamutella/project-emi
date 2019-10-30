@@ -1,3 +1,5 @@
+@import "../assets/sharedStyles/breakpoints";
+
 .selection {
   margin-left: 20px;
   border: none;
@@ -6,9 +8,15 @@
   font-size: 3rem;
   cursor: pointer;
   // text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
-  color: #3bc9db;
+  color: #f8c758;
   font-weight: bold;
   font-weight: 800;
+  @include breakpoint(medium) {
+    font-size: 60px;
+  }
+  @include breakpoint(large) {
+    font-size: 70px;
+  }
 }
 
 .home button {
@@ -24,8 +32,13 @@
 }
 
 .home-container {
-  background: rgb(255,255,255);
-  background: linear-gradient( rgba(255,255,255,1) 0%, rgba(255,255,255,1) 80%, rgba(209,242,238,1) 92%, rgba(209,242,238,1) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 80%,
+    rgba(209, 242, 238, 1) 92%,
+    rgba(209, 242, 238, 1) 100%
+  );
   width: 100vw;
   height: 95vh;
   display: flex;
@@ -35,9 +48,25 @@
     font-weight: 800;
     text-indent: 20px;
   }
+  @include breakpoint(medium) {
+    justify-content: space-around;
+  }
 }
 
 .text-container {
   color: #484848;
   margin-top: -80px;
+}
+
+.dogImg {
+  display: none;
+  @include breakpoint(medium) {
+    display: block;
+    margin-left: -100px;
+    width: 400px;
+  }
+  @include breakpoint(large) {
+    margin-left: -100px;
+    width: 600px;
+  }
 }
