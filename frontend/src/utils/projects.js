@@ -51,7 +51,6 @@ export const newProject = function(
     data: qs.stringify({ category, description, title, customer, startDate })
   })
     .then(project => {
-      debugger;
       return project;
     })
     .catch(error => {
