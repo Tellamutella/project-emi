@@ -16,12 +16,41 @@
 }
 
 .project-detail-quoted {
-  text-align: right;
-  color: green;
-  @include breakpoint(medium) {
-    color: blue;
+  margin: 0 0 20px 0;
+  h3{
+    color: #0eb6a8;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 0 0;
   }
-  @include breakpoint(large) {
-    color: red;
+  h4, p {
+    color: #484848;
+  }
+  h4{ 
+    margin: 15px 0 15px 0;
+  }
+  p{
+    margin:0 0 0 0;
+  }
+}
+
+.display-details{
+  h3{
+    color: #0eb6a8;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  h4, p {
+    color: #484848;
+  }
+
+  h4{ 
+    margin: 10px 0 10px 0;
+  }
+  p{
+    margin:0 0 0 0;
   }
 }

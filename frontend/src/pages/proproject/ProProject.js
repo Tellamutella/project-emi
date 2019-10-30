@@ -49,13 +49,13 @@ export default class ProProjects extends Component {
               <div className="project-side-bar">
                 {this.state.projects.map(project => (
                   <div className="side-bar-item">
-                    <p>{project.title}</p>
-                    <p>{project.category}</p>
+                    <h3>{project.title}</h3>
+                    <p><span>Category:</span> {project.category}</p>
                     <Link
                       className="project-detail-button"
                       to={`/professional/projects/details/${project._id}`}
                     >
-                      check me out
+                      Check Project
                   </Link>
                   </div>
                 ))}
@@ -71,13 +71,13 @@ export default class ProProjects extends Component {
               <div className="project-mobile">
                 {this.state.projects.map(project => (
                   <div className="project-mobile-item">
-                    <h2>Title: {project.title}</h2>
-                    <h3>category: {project.category}</h3>
+                    <h3>{project.title}</h3>
+                    <p><span>Category:</span> {project.category}</p>
                     <Link
                       className="project-detail-button"
                       to={`/professional/projects/details/m/${project._id}`}
                     >
-                      check me out
+                      Check Project
                 </Link>
                   </div>
                 ))}

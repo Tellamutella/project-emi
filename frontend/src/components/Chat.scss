@@ -4,13 +4,20 @@
     flex-direction: column;
     flex-grow: 1;
   }
+
+.Chat-professional {
+ height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
   
   .Chat__titlebar {
     display: flex;
     align-items: center;
     background: #ededed;
     padding: 0rem 0.5rem;
-    height: 4rem;
+    height: 3rem;
   }
   
   .Chat__titlebar__avatar {
@@ -22,6 +29,11 @@
   .Chat__titlebar__details {
     display: flex;
     flex-direction: column;
+span {
+  text-transform: uppercase;
+  color: #484848;
+  font-weight: 600;
+}
   }
   
   .Chat__titlebar__details__presence {
@@ -55,9 +67,9 @@
   
   .Chat__messages__message {
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0.8rem;
     padding-bottom: 0.5rem;
-    min-width: 300px;
+    min-width: 220px;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.08);
     display: block;
     position: relative;
@@ -98,7 +110,7 @@
   
   .Chat__messages__message__arrow.alt:after {
     transform: rotate(45deg) scaleY(-1);
-    border-top: 9px solid #542182;
+    border-top: 9px solid #0eb6a8;
   }
   
   .Chat__messages__message--other {
@@ -106,7 +118,7 @@
   }
   
   .Chat__messages__message--self {
-    background: #542182;
+    background: #0eb6a8;
     color: #ffffff;
   }
   
