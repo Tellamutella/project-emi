@@ -12,14 +12,22 @@ const tokenProvider = new TokenProvider({
 const instanceLocator = "v1:us1:ad1a82fb-1e31-4c60-b09a-00df47ef2751";
 
 export default class ProjectDetails extends Component {
-  state = {
-    project: null,
-    hourlyPrice: "",
-    description: "",
-    user: getProfessional(),
-    quote: null
-  };
+  constructor() {
+    super()
+    this.state = {
+      project: null,
+      hourlyPrice: "",
+      description: "",
+      user: getProfessional(),
+      quote: null,
+      isDesktop: false
+    };
+    this.updatePredicate = this.updatePredicate.bind(this);
+  }
+
   componentDidMount() {
+    this.updatePredicate();
+    window.addEventListener("resize", this.updatePredicate);
     this.fetchProjectDetails();
   }
 
@@ -94,10 +102,15 @@ export default class ProjectDetails extends Component {
       });
   };
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate() {
+    this.setState({ isDesktop: window.innerWidth > 750 });
+  }
   render() {
-    
-
-
+    const isDesktop = this.state.isDesktop;
     return (
 
       <div className="project-detail-container">
@@ -126,6 +139,21 @@ export default class ProjectDetails extends Component {
                     <ProfessionalChat otherUserId={props.match.params.customerId} />
                   </ChatkitProvider>
                 )} />
+                {!isDesktop ?
+
+                  <ChatkitProvider
+                    instanceLocator={instanceLocator}
+                    tokenProvider={tokenProvider}
+                    userId={this.state.user.id}>
+                    <ProfessionalChat otherUserId={this.state.project.customer} />
+                  </ChatkitProvider> :
+                  <>
+                  </>
+
+                }
+
+
+
 
               </>
             ) : (
