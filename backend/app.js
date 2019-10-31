@@ -52,7 +52,7 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public/build")));
 
 app.use(
   cors({
@@ -68,10 +68,6 @@ global.chatkit = new Chatkit.default({
 })
 
 app.use("/api", require("./routes/auth/customer"));
-
-app.listen(5000, () =>
-  console.log("emi backend running on port 5000 🎧 🥁 🎸 🔊")
-);
 
 const index = require('./routes/index');
 app.use('/', index);
