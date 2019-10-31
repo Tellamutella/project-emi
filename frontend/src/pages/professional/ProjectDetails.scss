@@ -3,8 +3,11 @@
 .project-detail-container {
   display: flex;
   flex-direction: column;
-  width: 85vw;
+  width: 90vw;
   padding: 30px;
+  @include breakpoint(large) {
+  width:60vw;
+  }
 }
 
 .loading {

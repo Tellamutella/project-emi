@@ -2,7 +2,7 @@ import "./Home.scss";
 import BasicLayout from "../layout/BasicLayout";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import dogImg from '../images/undraw_team_spirit_hrr4.svg'
+import dogImg from "../images/undraw_team_spirit_hrr4.svg";
 
 export default class Home extends Component {
   constructor(props) {
@@ -45,45 +45,45 @@ export default class Home extends Component {
                   <option value="Fitness">Fitness</option>
                 </select>
                 <h1>Field</h1>
-                <button>
-                  <Link
-                    to={{
-                      pathname: "/professional/signup",
-                      data: this.state.input
-                    }}
-                  >
-                    Register as a Pro Now!
-                  </Link>
-                </button>
+
+                <Link
+                  className="home-btn"
+                  to={{
+                    pathname: "/professional/signup",
+                    data: this.state.input
+                  }}
+                >
+                  Register as a Pro Now!
+                </Link>
               </>
             ) : (
-                <>
-                  <h1> and im looking for</h1>
-                  <select
-                    className="selection"
-                    value={this.state.input}
-                    onChange={this.handleInput}
-                  >
-                    <option value="IT">IT</option>
-                    <option value="Pet">Pet</option>
-                    <option value="Home Services">Home Services</option>
-                    <option value="Fitness">Fitness</option>
-                  </select>
-                  <h1>Services</h1>
-                  <button>
-                    <Link
-                      to={{
-                        pathname: "/customer/signup",
-                        data: this.state.input
-                      }}
-                    >
-                      Get a quote
-                  </Link>
-                  </button>
-                </>
-              )}
+              <>
+                <h1> and im looking for</h1>
+                <select
+                  className="selection"
+                  value={this.state.input}
+                  onChange={this.handleInput}
+                >
+                  <option value="IT">IT</option>
+                  <option value="Pet">Pet</option>
+                  <option value="Home Services">Home Services</option>
+                  <option value="Fitness">Fitness</option>
+                </select>
+                <h1>Services</h1>
+
+                <Link
+                  className="home-btn"
+                  to={{
+                    pathname: "/customer/signup",
+                    data: this.state.input
+                  }}
+                >
+                  Get a quote
+                </Link>
+              </>
+            )}
           </div>
-          <img className='dogImg' src={dogImg} />
+          <img className="dogImg" src={dogImg} />
         </div>
       </BasicLayout>
     );

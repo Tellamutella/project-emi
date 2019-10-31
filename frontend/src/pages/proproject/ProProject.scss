@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  justify-content: center;
+  height: 100vh;
   align-items: center;
 }
 
@@ -57,7 +57,7 @@
   border: 1px #eff0f1 solid;
   padding: 10px;
   border-radius: 5px;
-  height: 25%;
+  height: 15%;
   width: 80%;
   h3 {
     font-weight: 700;
@@ -86,7 +86,6 @@
   width: 150px;
   height: 30px;
   font-weight: bold;
-  align-self: flex-end;
   text-decoration: none;
   line-height: 30px;
   text-align: center;
@@ -99,4 +98,15 @@
     width: 120px;
     font-size: 0.8rem;
   }
+}
+
+.avatar-img{
+  height: 40px;
+}
+.side-bar-img-container{
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px
 }

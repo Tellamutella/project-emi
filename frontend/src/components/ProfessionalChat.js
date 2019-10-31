@@ -41,7 +41,7 @@ function Chat(props) {
         // https://pusher.com/docs/chatkit/reference/javascript#messages
         textContent: m.parts[0].payload.content,
     }));
-
+  
     return (
         <div className="Chat">
             <div className="Chat__titlebar">

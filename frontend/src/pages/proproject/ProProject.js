@@ -4,6 +4,7 @@ import { Link, Route } from "react-router-dom";
 import ProjectDetails from "../professional/ProjectDetails";
 import "./ProProject.scss";
 import BasicLayout from "../../layout/BasicLayout";
+import Female from "../../images/female.svg";
 
 export default class ProProjects extends Component {
   constructor() {
@@ -50,13 +51,18 @@ export default class ProProjects extends Component {
                 {this.state.projects.map(project => (
                   <div className="side-bar-item">
                     <h3>{project.title}</h3>
-                    <p><span>Category:</span> {project.category}</p>
-                    <Link
-                      className="project-detail-button"
-                      to={`/professional/projects/details/${project._id}`}
-                    >
-                      Check Project
-                  </Link>
+                    <p>
+                      <span>Category:</span> {project.category}
+                    </p>
+                    <div className="side-bar-img-container">
+                      <img className="avatar-img" src={Female} />
+                      <Link
+                        className="project-detail-button"
+                        to={`/professional/projects/details/${project._id}`}
+                      >
+                        Check Project
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -68,22 +74,28 @@ export default class ProProjects extends Component {
               />
             </div>
           ) : (
-              <div className="project-mobile">
-                {this.state.projects.map(project => (
-                  <div className="project-mobile-item">
-                    <h3>{project.title}</h3>
-                    <p><span>Category:</span> {project.category}</p>
+            <div className="project-mobile">
+              {this.state.projects.map(project => (
+                <div className="project-mobile-item">
+                  <h3>{project.title}</h3>
+                  <p>
+                    <span>Category:</span> {project.category}
+                  </p>
+                  <div className="side-bar-img-container">
+                    <img className="avatar-img" src={Female} />
                     <Link
                       className="project-detail-button"
                       to={`/professional/projects/details/m/${project._id}`}
                     >
                       Check Project
-                </Link>
+                    </Link>
                   </div>
-                ))}
-              </div>
-            )}
+                </div>
+              ))}
+            </div>
+          )}
         </>
-      </BasicLayout>);
+      </BasicLayout>
+    );
   }
 }
