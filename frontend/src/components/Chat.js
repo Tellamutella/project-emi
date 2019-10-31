@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { withChatkitOneToOne } from '@pusher/chatkit-client-react';
 
 import './Chat.scss';
-import defaultAvatar from '../images/emilogo';
+import defaultAvatar from '../images/avatar-profile2';
+import BasicLayout from '../layout/BasicLayout';
 
 function Chat(props) {
     const [pendingMessage, setPendingMessage] = useState('');
@@ -44,7 +45,7 @@ function Chat(props) {
     }));
 
     return (
-        <div className="Chat">
+        <div className="Customer-chat">
             <div className="Chat__titlebar">
                 <img
                     src={defaultAvatar}

@@ -25,7 +25,7 @@ export const getProfessional = function () {
 
 export const clearUser = function () {
   localStorage.removeItem("professional");
-  localStorage.removeItem("customer");
+  localStorage.removeItem("customer")
 }
 
 export const login = function (email, password) {

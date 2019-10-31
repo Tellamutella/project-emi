@@ -27,12 +27,17 @@ class ProNav extends Component {
   }
 
   logoutUser() {
-    logout();
-    this.setState({
-      professional: null,
-      customer: null
-    });
-    this.props.history.push("/");
+    logout()
+      .then(() => {
+        this.setState({ professional: null, customer: null });
+      })
+      .then(() => {
+        this.props.history.push("/");
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
   }
 
   showSettings(event) {
@@ -112,10 +117,10 @@ class ProNav extends Component {
                   <img src={emilogo} alt="" />
                 </Link>
                 <div className="ProNav-Conditional">
-                  <Link to={`/professional/signup`}>Pro Sign Up</Link>
+                  <Link to={`/customer/signup`}>Quote Request</Link>
+                  <Link to={`/customer/login`}>Customer Login</Link>
                   <Link to={`/professional/login`}>Pro Login</Link>
-                  <Link to={`/customer/signup`}>Cus Sign Up</Link>
-                  <Link to={`/customer/login`}>Cus Log in</Link>
+                  <Link to={`/professional/signup`}>Join as A Pro</Link>
                 </div>
               </div>
             ) : (
@@ -125,9 +130,9 @@ class ProNav extends Component {
                   </Link>
                   < Menu right pageWrapId={"page-wrap"} customBurgerIcon={<img src={burgericon} />} customCrossIcon={<img src={crossicon} />}>
                     <Link className="menu-item" to={`/customer/signup`}>Quote Request</Link>
-                    <Link className="menu-item" to={`/customer/login`}>Customer Log in</Link>
-                    <Link className="menu-item" to={`/professional/login`}>Professional Login</Link>
-                    <Link className="menu-item" to={`/professional/signup`}>Join As Professional</Link>
+                    <Link className="menu-item" to={`/customer/login`}>Customer Login</Link>
+                    <Link className="menu-item" to={`/professional/login`}>Pro Login</Link>
+                    <Link className="menu-item" to={`/professional/signup`}>Join As Pro</Link>
                   </Menu>
                 </div>
               )
