@@ -14,7 +14,7 @@ const Chatkit = require('@pusher/chatkit-server')
 var app = express();
 
 mongoose
-  .connect(`mongodb://localhost/emi-project`, {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000"]
+    origin: [process.env.URL]
   })
 );
 

@@ -22,7 +22,7 @@ export default class ProProjects extends Component {
     window.addEventListener("resize", this.updatePredicate);
     axios({
       method: "GET",
-      url: "http://localhost:5000/api/projects"
+      url: `${process.env.REACT_APP_BASEURL}/api/projects`
     })
       .then(res => {
         this.setState({ projects: res.data });

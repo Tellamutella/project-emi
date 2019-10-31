@@ -34,7 +34,7 @@ export default class ProjectDetails extends Component {
   fetchProjectDetails() {
     return axios({
       method: "GET",
-      url: `http://localhost:5000/api/projects/${this.props.match.params.id}`
+      url: `${process.env.REACT_APP_BASEURL}/api/projects/${this.props.match.params.id}`
     })
       .then(res => {
         let check = res.data.quotes.filter(
@@ -92,7 +92,7 @@ export default class ProjectDetails extends Component {
         hourlyPrice,
         description
       },
-      url: "http://localhost:5000/api/quotes/create"
+      url: `${process.env.REACT_APP_BASEURL}/api/quotes/create`
     })
       .then(response => {
         this.fetchProjectDetails();

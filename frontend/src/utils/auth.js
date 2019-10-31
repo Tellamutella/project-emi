@@ -30,7 +30,7 @@ export const clearUser = function () {
 
 export const login = function (email, password) {
   return axios({
-    url: "http://localhost:5000/api/customer/login",
+    url: `${process.env.REACT_APP_BASEURL}/api/customer/login`,
     data: qs.stringify({ email, password }),
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" }
@@ -45,7 +45,7 @@ export const login = function (email, password) {
 
 export const prologin = function (email, password) {
   return axios({
-    url: "http://localhost:5000/api/professional/login",
+    url: `${process.env.REACT_APP_BASEURL}/api/professional/login`,
     data: qs.stringify({ email, password }),
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" }
@@ -60,7 +60,7 @@ export const prologin = function (email, password) {
 
 export const logout = function () {
   return axios
-    .get("http://localhost:5000/api/logout")
+    .get(`${process.env.REACT_APP_BASEURL}/api/logout`)
     .then(res => {
       clearUser()
       console.log("logged out");

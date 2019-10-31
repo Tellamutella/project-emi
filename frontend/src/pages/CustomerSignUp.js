@@ -62,7 +62,7 @@ class CustomerSignUp extends Component {
           password,
           mobile
         },
-        url: "http://localhost:5000/api/customer/signup"
+        url: `${process.env.REACT_APP_BASEURL}/api/customer/signup`
       })
         .then(response => {
           localStorage.setItem("customer", JSON.stringify(response.data));
@@ -76,7 +76,7 @@ class CustomerSignUp extends Component {
               startDate,
               location
             },
-            url: "http://localhost:5000/api/projects/create"
+            url: `${process.env.REACT_APP_BASEURL}/api/projects/create`
           })
             .then(project => {
               this.props.history.push("/");
@@ -96,7 +96,7 @@ class CustomerSignUp extends Component {
           email: loginEmail,
           password: loginPassword
         },
-        url: "http://localhost:5000/api/customer/login"
+        url: `${process.env.REACT_APP_BASEURL}/api/customer/login`
       })
         .then(response => {
           axios({
@@ -109,7 +109,7 @@ class CustomerSignUp extends Component {
               startDate,
               location
             },
-            url: "http://localhost:5000/api/projects/create"
+            url: `${process.env.REACT_APP_BASEURL}/api/projects/create`
           })
             .then(res => {
               console.log("project saved");

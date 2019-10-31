@@ -7,7 +7,7 @@ const history = createBrowserHistory();
 export const getProjects = function() {
   return axios({
     method: "GET",
-    url: "http://localhost:5000/api/projects"
+    url: `${process.env.REACT_APP_BASEURL}/api/projects`
   })
     .then(projects => {
       return projects;
@@ -27,7 +27,7 @@ export const getProjects = function() {
 export const getSingleProject = function(projectId) {
   return axios({
     method: "GET",
-    url: `http://localhost:5000/api/customer/projects/${projectId}`
+    url: `${process.env.REACT_APP_BASEURL}/api/customer/projects/${projectId}`
   })
     .then(response => {
       return response;
@@ -46,7 +46,7 @@ export const newProject = function(
 ) {
   return axios({
     method: "POST",
-    url: "http://localhost:5000/api/projects/create",
+    url: `${process.env.REACT_APP_BASEURL}/api/projects/create`,
     headers: { "content-type": "application/x-www-form-urlencoded" },
     data: qs.stringify({ category, description, title, customer, startDate })
   })

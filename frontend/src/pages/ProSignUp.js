@@ -23,7 +23,7 @@ export default class ProSignUp extends Component {
     this.submitHandler = event => {
       event.preventDefault();
       axios({
-        url: "http://localhost:5000/api/professional/signup",
+        url: `${process.env.REACT_APP_BASEURL}/api/professional/signup`,
         method: "POST",
         data: qs.stringify(this.state),
         headers: {
