@@ -55,7 +55,8 @@
 
 .text-container {
   color: #484848;
-  margin-top: -80px;
+  margin-top: 80px;
+  height: 80vh;
 }
 
 .dogImg {
@@ -69,4 +70,13 @@
     margin-left: -100px;
     width: 600px;
   }
+}
+
+.home-btn{
+  border: 1px #71CDC3 solid;
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color:black;
+  margin: 50px 20px;
 }
