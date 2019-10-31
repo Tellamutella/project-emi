@@ -12,7 +12,7 @@ const cors = require("cors");
 const Chatkit = require('@pusher/chatkit-server')
 
 var app = express();
-
+console.log(process.env.DB)
 mongoose
   .connect(process.env.DB, {
     useNewUrlParser: true,
