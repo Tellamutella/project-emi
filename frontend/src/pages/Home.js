@@ -2,7 +2,7 @@ import "./Home.scss";
 import BasicLayout from "../layout/BasicLayout";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import dogImg from '../images/undraw_team_spirit_hrr4.svg'
+import dogImg from "../images/undraw_team_spirit_hrr4.svg";
 
 export default class Home extends Component {
   constructor(props) {
@@ -45,16 +45,16 @@ export default class Home extends Component {
                   <option value="Fitness">Fitness</option>
                 </select>
                 <h1>Field</h1>
-                <button>
-                  <Link
-                    to={{
-                      pathname: "/professional/signup",
-                      data: this.state.input
-                    }}
-                  >
-                    Register as a Pro Now!
-                  </Link>
-                </button>
+
+                <Link
+                  className="home-btn"
+                  to={{
+                    pathname: "/professional/signup",
+                    data: this.state.input
+                  }}
+                >
+                  Register as a Pro Now!
+                </Link>
               </>
             ) : (
               <>
@@ -70,20 +70,20 @@ export default class Home extends Component {
                   <option value="Fitness">Fitness</option>
                 </select>
                 <h1>Services</h1>
-                <button>
-                  <Link
-                    to={{
-                      pathname: "/customer/signup",
-                      data: this.state.input
-                    }}
-                  >
-                    Get a quote
-                  </Link>
-                </button>
+
+                <Link
+                  className="home-btn"
+                  to={{
+                    pathname: "/customer/signup",
+                    data: this.state.input
+                  }}
+                >
+                  Get a quote
+                </Link>
               </>
             )}
           </div>
-                  <img className='dogImg' src={dogImg} />
+          <img className="dogImg" src={dogImg} />
         </div>
       </BasicLayout>
     );
