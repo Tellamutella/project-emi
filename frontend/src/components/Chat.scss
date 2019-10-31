@@ -1,3 +1,19 @@
+.chat-container{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0 0;
+}
+
+.Customer-chat-project-container{
+  width: 30vw;
+}
+.Customer-chat{
+  height: 85vh;
+  width: 80vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 .Chat {
     height: 100%;
     display: flex;
@@ -21,7 +37,7 @@
   }
   
   .Chat__titlebar__avatar {
-    width: 3rem;
+    width: 2.5rem;
     border-radius: 1.5rem;
     margin-right: 1rem;
   }
@@ -133,6 +149,7 @@ span {
     padding: 1rem;
     background: #ededed;
     display: flex;
+    height: 65px;
   }
   
   .Chat__compose__input {

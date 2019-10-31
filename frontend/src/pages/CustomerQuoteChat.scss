@@ -1,0 +1,52 @@
+@import "../assets/sharedStyles/breakpoints.scss";
+
+.customer-chat-container {
+    margin: 0  20px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    @include breakpoint(medium) {
+        flex-direction: row;
+    }
+
+}
+
+.project-info-container {
+    h4, p {
+        color: #484848;
+    }
+    h3 {
+        color: #0eb6a8;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin: 20px 20px 20px 20px;
+        font-size: 1.3rem;
+    }
+    h4{
+        margin: 10px 20px 10px 20px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: 800;
+    }
+    p {
+        margin: 0 20px 0 20px;
+    }
+    @include breakpoint(medium) {
+        width: 35vw;
+        margin: 0 30px 0 20px;
+        background: #f3f3f1;
+        border-radius: 10px;
+    }
+}
+
+.back-margin{
+    margin: 15px 10px 15px;
+    font-size: 0.8rem;
+    background: #0eb6a8;
+    border-radius: 7px;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}

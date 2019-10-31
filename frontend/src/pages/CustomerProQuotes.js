@@ -40,33 +40,43 @@ export default class CustomerProQuotes extends Component {
           {this.state.project === null ? (
             <p>loading </p>
           ) : (
-            <div className="QuotesLargeContainer">
-              <div className="QuotesProjectContainer">
-                <h2>{this.state.project.title}</h2>
-                <p>{this.state.project.description}</p>
-                <p>{this.state.project.location}</p>
-                <p>{this.state.project.date}</p>
-              </div>
-              {this.state.project.quotes.map(quote => (
-                <div className="QuotesContainer">
-                  <div className="QuotesContainerColRow">
-                    <h3>Quote from {quote.professional.firstName}</h3>
-                    <p>Price: ${quote.hourlyPrice}/hour</p>
-                    <p>{quote.description}</p>
-                  </div>
-                  <button
-                    onClick={() => {
-                      this.handlelogin(customerId, quote.professional._id);
-                    }}
-                  >
-                    Chat
-                  </button>
+              <div className="QuotesLargeContainer">
+                <div className="QuotesProjectContainer">
+                  <h2>{this.state.project.title}</h2>
+                  <p>{this.state.project.description}</p>
+                  <p>{this.state.project.location}</p>
+                  <p>{this.state.project.date}</p>
+                  <p>{this.state.project._id}</p>
                 </div>
-              ))}
-            </div>
-          )}
+                {this.state.project.quotes.map(quote => (
+                  <div className="QuotesContainer">
+                    <div className="QuotesContainerColRow">
+                      <h3>Quote from {quote.professional.firstName}</h3>
+                      <p>Price: ${quote.hourlyPrice}/hour</p>
+                      <p>{quote.description}</p>
+                      <p>{quote._id}</p>
+                    </div>
+                    {/* <button
+                      onClick={() => {
+                        this.handlelogin(customerId, quote.professional._id);
+                      }}
+                    >
+                      Chat
+                  </button> */}
+                    <Link to={{
+                      pathname: `/customer/projects/${this.state.project._id}/${quote._id}`,
+                      project: this.state.project,
+                      quote: quote
+                    }}
+                    >
+                      Chat
+                  </Link>
+                  </div>
+                ))}
+              </div>
+            )}
         </div>
-      </BasicLayout>
+      </BasicLayout >
     );
   }
 }

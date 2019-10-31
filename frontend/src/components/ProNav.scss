@@ -16,16 +16,21 @@
     justify-content: flex-end;
     width: 70vw;
     align-items: center;
+    padding: 0 30px 0 0;
 }
 
 .ProNav a, .ProNav p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 800;
     text-decoration: none;
     color: #0eb6a8;
     margin: 0 10px 0 10px;
+}
+
+.ProNav a:hover, .ProNav p:hover {
+    color: #484848;
 }
 
 .ProNav img {

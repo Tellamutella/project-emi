@@ -11,19 +11,14 @@ import CustomerProQuotes from "./pages/CustomerProQuotes";
 import ProjectDetails from "./pages/professional/ProjectDetails";
 import Chat from "./components/Chat"
 import { ChatkitProvider, TokenProvider } from '@pusher/chatkit-client-react';
+import CustomerQuoteChat from "./pages/CustomerQuoteChat";
 
 require('dotenv').config();
 
-// const tokenProvider = new TokenProvider({
-//   url: `${process.env.CHATKIT_TOKEN}`
-// });
-
 const tokenProvider = new TokenProvider({
-  url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/ad1a82fb-1e31-4c60-b09a-00df47ef2751/token",
+  url: process.env.REACT_APP_CHATKIT_TOKEN
 });
-
-const instanceLocator = "v1:us1:ad1a82fb-1e31-4c60-b09a-00df47ef2751";
-// const instanceLocator = process.env.CHATKIT_INSTANCE;
+const instanceLocator = process.env.REACT_APP_CHATKIT_INSTANCE;
 
 function App() {
 
@@ -43,7 +38,7 @@ function App() {
         <Route path="/customer/login" component={CustomerLogIn} />
         <Route exact path="/customer/projects" component={CustomerProject} />
 
-        <Route path="/customer/projects/:id" component={CustomerProQuotes} />
+        <Route exact path="/customer/projects/:id" component={CustomerProQuotes} />
         {/* <Route path="/customer/projects/:id" render={props => (
           <ChatkitProvider
             instanceLocator={instanceLocator}
@@ -55,7 +50,9 @@ function App() {
         )}>
 
         </Route> */}
+        <Route path="/customer/projects/:projectId/:quoteId" component={CustomerQuoteChat} />
 
+        {/* this one this one this one
         <Route path="/customer/chat/:customerId/:professionalId" render={props => (
           <ChatkitProvider
             {...props}
@@ -65,7 +62,7 @@ function App() {
             <Chat otherUserId={props.match.params.professionalId} />
           </ChatkitProvider>
         )}>
-        </Route>
+        </Route> */}
 
 
 

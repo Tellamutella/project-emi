@@ -7,9 +7,9 @@ import ProfessionalChat from "../../components/ProfessionalChat"
 import { ChatkitProvider, TokenProvider } from '@pusher/chatkit-client-react';
 import { Route } from "react-router-dom";
 const tokenProvider = new TokenProvider({
-  url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/ad1a82fb-1e31-4c60-b09a-00df47ef2751/token",
+  url: process.env.REACT_APP_CHATKIT_TOKEN,
 });
-const instanceLocator = "v1:us1:ad1a82fb-1e31-4c60-b09a-00df47ef2751";
+const instanceLocator = process.env.REACT_APP_CHATKIT_INSTANCE;
 
 export default class ProjectDetails extends Component {
   constructor() {
@@ -36,7 +36,7 @@ export default class ProjectDetails extends Component {
       method: "GET",
       url: `http://localhost:5000/api/projects/${this.props.match.params.id}`
     })
-      .then(res => {    
+      .then(res => {
         let check = res.data.quotes.filter(
           element => element.professional === this.state.user.id
         );
@@ -61,9 +61,9 @@ export default class ProjectDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    
+
     if (prevProps.match.params.id != this.props.match.params.id) {
-      
+
       this.fetchProjectDetails()
         .then((project) => {
           let projectId = this.props.match.params.id;
@@ -126,29 +126,23 @@ export default class ProjectDetails extends Component {
                   <p>${this.state.quote.hourlyPrice}/hr</p>
                   <h4>Quote Description:</h4>
                   <p>{this.state.quote.description}</p>
-                  <h4>Project customer id</h4>
-                  <p>{this.state.project.customer}</p>
                 </div>
-
-                <Route path="/professional/projects/details/:id/:customerId/:professionalId" render={props => (
-                  <ChatkitProvider
-                    {...props}
-                    instanceLocator={instanceLocator}
-                    tokenProvider={tokenProvider}
-                    userId={props.match.params.professionalId}>
-                    <ProfessionalChat otherUserId={props.match.params.customerId} />
-                  </ChatkitProvider>
-                )} />
                 {!isDesktop ?
-
                   <ChatkitProvider
                     instanceLocator={instanceLocator}
                     tokenProvider={tokenProvider}
                     userId={this.state.user.id}>
                     <ProfessionalChat otherUserId={this.state.project.customer} />
                   </ChatkitProvider> :
-                  <>
-                  </>
+                  <Route path="/professional/projects/details/:id/:customerId/:professionalId" render={props => (
+                    <ChatkitProvider
+                      {...props}
+                      instanceLocator={instanceLocator}
+                      tokenProvider={tokenProvider}
+                      userId={props.match.params.professionalId}>
+                      <ProfessionalChat otherUserId={props.match.params.customerId} />
+                    </ChatkitProvider>
+                  )} />
 
                 }
 

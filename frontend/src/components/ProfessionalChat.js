@@ -2,7 +2,7 @@ import Moment from 'react-moment';
 import React, { useState, useEffect } from 'react';
 import { withChatkitOneToOne } from '@pusher/chatkit-client-react';
 import './Chat.scss';
-import defaultAvatar from '../images/emilogo';
+import defaultAvatar from '../images/avatar-profile';
 
 function Chat(props) {
     const [pendingMessage, setPendingMessage] = useState('');
@@ -41,6 +41,7 @@ function Chat(props) {
         // https://pusher.com/docs/chatkit/reference/javascript#messages
         textContent: m.parts[0].payload.content,
     }));
+  
     return (
         <div className="Chat">
             <div className="Chat__titlebar">
