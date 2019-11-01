@@ -75,4 +75,8 @@ app.use('/api', require('./routes/project'));
 app.use('/api', require('./routes/auth/professional'))
 app.use('/api', require('./routes/quote'))
 
+app.use((req,res)=> {
+  res.redirect(`/?redirectUrl=${req.originalUrl}`)
+})
+
 module.exports = app;

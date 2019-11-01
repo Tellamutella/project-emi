@@ -3,7 +3,8 @@ import BasicLayout from "../layout/BasicLayout";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import dogImg from "../images/undraw_team_spirit_hrr4.svg";
-
+import qs from "qs"; 
+debugger
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,12 @@ export default class Home extends Component {
   handleSelect = event => this.setState({ user: event.target.value });
   handleInput = event => this.setState({ input: event.target.value });
 
+  componentDidMount() {
+    if(this.props.location.search) {
+      var redirect = qs.parse(this.props.location.search,  { ignoreQueryPrefix: true }).redirectUrl
+      this.props.history.push(redirect)
+    }
+  }
   render() {
     return (
       <BasicLayout>
