@@ -47,41 +47,39 @@ export default class Home extends Component {
                 <h1>Field</h1>
 
                 <Link
-                  className="home-btn"
                   to={{
                     pathname: "/professional/signup",
                     data: this.state.input
                   }}
                 >
-                  Register as a Pro Now!
+                  <button className="home-btn"> Register as a Pro</button>
                 </Link>
               </>
             ) : (
-              <>
-                <h1> and im looking for</h1>
-                <select
-                  className="selection"
-                  value={this.state.input}
-                  onChange={this.handleInput}
-                >
-                  <option value="IT">IT</option>
-                  <option value="Pet">Pet</option>
-                  <option value="Home Services">Home Services</option>
-                  <option value="Fitness">Fitness</option>
-                </select>
-                <h1>Services</h1>
+                <>
+                  <h1> and im looking for</h1>
+                  <select
+                    className="selection"
+                    value={this.state.input}
+                    onChange={this.handleInput}
+                  >
+                    <option value="IT">IT</option>
+                    <option value="Pet">Pet</option>
+                    <option value="Home Services">Home Services</option>
+                    <option value="Fitness">Fitness</option>
+                  </select>
+                  <h1>Services</h1>
 
-                <Link
-                  className="home-btn"
-                  to={{
-                    pathname: "/customer/signup",
-                    data: this.state.input
-                  }}
-                >
-                  Get a quote
-                </Link>
-              </>
-            )}
+                  <Link
+                    to={{
+                      pathname: "/customer/signup",
+                      data: this.state.input
+                    }}
+                  >
+                    <button className="home-btn">Get A Quote</button>
+                  </Link>
+                </>
+              )}
           </div>
           <img className="dogImg" src={dogImg} />
         </div>

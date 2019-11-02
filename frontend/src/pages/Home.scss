@@ -8,7 +8,7 @@
   font-size: 3rem;
   cursor: pointer;
   // text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
-  color: #f8c758;
+  color: #fcc2cc;
   font-weight: bold;
   font-weight: 800;
   @include breakpoint(medium) {
@@ -73,10 +73,22 @@
 }
 
 .home-btn{
-  border: 1px #71CDC3 solid;
+  border: 2px #087285 solid;
   padding: 15px;
   border-radius: 10px;
   text-decoration: none;
-  color:black;
-  margin: 50px 20px;
+  background: #087285;
+  color:white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 15px 20px;
+  
+}
+
+.home-btn:hover {
+  color: #087285;
+  background: white;
+  border: #087285 2px solid;
+  transition-duration: 0.2s;
 }

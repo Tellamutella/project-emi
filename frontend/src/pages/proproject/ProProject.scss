@@ -24,7 +24,8 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: auto;
+
   h3 {
     font-weight: 700;
     color: #0eb6a8;
@@ -57,7 +58,6 @@
   border: 1px #eff0f1 solid;
   padding: 10px;
   border-radius: 5px;
-  height: 15%;
   width: 80%;
   h3 {
     font-weight: 700;
@@ -78,8 +78,8 @@
 }
 
 .project-detail-button {
-  border: 1px #0eb6a8 solid;
-  background-color: #0eb6a8;
+  border: 1px #087285 solid;
+  background-color: #087285;
   border-radius: 5px;
   color: white;
   cursor: pointer;
@@ -89,7 +89,8 @@
   text-decoration: none;
   line-height: 30px;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
+  text-transform: uppercase;
   @include breakpoint(small) {
     width: 120px;
     font-size: 0.8rem;

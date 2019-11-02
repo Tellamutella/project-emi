@@ -117,7 +117,6 @@ export default class ProjectDetails extends Component {
         {this.state.project ? (
           <>
             <Prodetail project={this.state.project} />
-
             {this.state.quote ? (
               <>
                 <div className='project-detail-quoted'>
@@ -145,15 +144,13 @@ export default class ProjectDetails extends Component {
                   )} />
 
                 }
-
-
-
-
               </>
             ) : (
-                <>
-                  <form onSubmit={this.sumbitHandler}>
+                <div className="project-quote-container">
+                  <h3>Submit Your Quote</h3>
+                  <form className="quote-input-field" onSubmit={this.sumbitHandler}>
                     <input
+                      required
                       placeholder="Price per hour"
                       onChange={this.inputHandler}
                       name="hourlyPrice"
@@ -161,6 +158,7 @@ export default class ProjectDetails extends Component {
                       type="text"
                     />
                     <input
+                      required
                       placeholder="Description"
                       onChange={this.inputHandler}
                       name="description"
@@ -169,7 +167,7 @@ export default class ProjectDetails extends Component {
                     />
                     <button type="submit"> Sumbit Quote</button>
                   </form>
-                </>
+                </div>
               )}
           </>
         ) : (

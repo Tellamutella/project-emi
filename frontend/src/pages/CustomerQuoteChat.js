@@ -27,9 +27,9 @@ export default class CustomerQuoteChat extends Component {
     render() {
         return (
             <BasicLayout>
-                <Link to={`/customer/projects/${this.state.project._id}`}>
+                {/* <Link to={`/customer/projects/${this.state.project._id}`}>
                     <button className="back-margin">Back</button>
-                </Link>
+                </Link> */}
                 <div className="customer-chat-container">
                     <div className="project-info-container">
                         <h3>{this.state.project.title}</h3>
@@ -42,7 +42,7 @@ export default class CustomerQuoteChat extends Component {
                         <p>{this.state.quote.description}</p>
                         <h4>Contact Number:</h4>
                         <p>{this.state.quote.professional.mobile}</p>
-                        {/* <a href="https://wa.me/+85264446184"><button>WhatsApp</button></a> */}
+                        {/* <a href={`https://api.whatsapp.com/send?phone=${this.state.quote.professional.mobile}&text=&source=&data=`}><button>WhatsApp</button></a> */}
                     </div>
                     <ChatkitProvider
                         instanceLocator={instanceLocator}

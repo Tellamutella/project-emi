@@ -159,6 +159,7 @@ class CustomerSignUp extends Component {
           <form onSubmit={this.handleSubmit} className="customer-form">
             {this.state.counter === 0 && (
               <>
+                <h1 className="quote-request">Request For A Quote</h1>
                 <div className="form-input-container">
                   <label>Title</label>
                   <input
@@ -291,7 +292,7 @@ class CustomerSignUp extends Component {
             {this.state.counter === 2 && (
               <>
                 <div className="form-input-signup">
-                  <label>Lastname</label>
+                  <label>Email</label>
                   <input
                     required
                     onChange={this.inputEvent}
@@ -302,11 +303,11 @@ class CustomerSignUp extends Component {
                   />
                 </div>
                 <div className="form-input-signup">
-                  <label>Lastname</label>
+                  <label>Password</label>
                   <input
                     required
                     onChange={this.inputEvent}
-                    type="text"
+                    type="password"
                     value={this.state.loginPassword}
                     name="loginPassword"
                     placeholder="password"

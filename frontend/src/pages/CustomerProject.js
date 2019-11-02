@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getUser, getCustomer } from "../utils/auth";
 import { Link } from "react-router-dom";
-import "./CusProject.scss";
+import "./CustomerProject.scss";
 import BasicLayout from "../layout/BasicLayout";
 import { getProjects } from "../utils/projects";
 import NewProjectForm from "../components/NewProjectForm";
@@ -39,6 +39,7 @@ export default class CustomerProject extends Component {
     return (
       <BasicLayout>
         <>
+          <h1 className="customer-project-title">Your Projects</h1>
           <div className='main-container'>
             <div className="CusPro">
               {this.state.filteredProjects.map(project => (

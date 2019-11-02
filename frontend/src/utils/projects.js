@@ -4,7 +4,7 @@ import qs from "qs";
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
-export const getProjects = function() {
+export const getProjects = function () {
   return axios({
     method: "GET",
     url: "http://localhost:5000/api/projects"
@@ -24,7 +24,7 @@ export const getProjects = function() {
     });
 };
 
-export const getSingleProject = function(projectId) {
+export const getSingleProject = function (projectId) {
   return axios({
     method: "GET",
     url: `http://localhost:5000/api/customer/projects/${projectId}`
@@ -37,18 +37,19 @@ export const getSingleProject = function(projectId) {
     });
 };
 
-export const newProject = function(
+export const newProject = function (
   category,
   description,
   title,
   customer,
-  startDate
+  startDate,
+  location
 ) {
   return axios({
     method: "POST",
     url: "http://localhost:5000/api/projects/create",
     headers: { "content-type": "application/x-www-form-urlencoded" },
-    data: qs.stringify({ category, description, title, customer, startDate })
+    data: qs.stringify({ category, description, title, customer, startDate, location })
   })
     .then(project => {
       return project;

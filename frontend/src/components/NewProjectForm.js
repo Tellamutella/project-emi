@@ -27,8 +27,10 @@ export default class NewProjectForm extends Component {
       this.state.description,
       this.state.title,
       this.state.customer.id,
-      this.state.startDate
+      this.state.startDate,
+      this.state.location
     );
+    debugger
     this.props.fetchData();
   };
 
@@ -49,7 +51,7 @@ export default class NewProjectForm extends Component {
   render() {
     return (
       <div className="form-container">
-        <h3> Add Project</h3>
+        <h3>Add a New Project</h3>
         <form className="NewProjectForm" onSubmit={this.handleSubmit}>
           <div className="input-container">
             <label>Title</label>
@@ -81,6 +83,17 @@ export default class NewProjectForm extends Component {
               value={this.state.description}
               name="description"
               placeholder="Enter description"
+            />
+          </div>
+          <div className="input-container">
+            <label>Location</label>
+            <input
+              required
+              onChange={this.handleChange}
+              type="text"
+              value={this.state.location}
+              name="location"
+              placeholder="Enter location"
             />
           </div>
           <label>Pick a date</label>
