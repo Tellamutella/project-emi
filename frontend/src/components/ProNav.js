@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { logout, getProfessional, getCustomer } from "../utils/auth";
 import { withRouter } from "react-router";
 import "./ProNav.scss";
-import emilogo from "../images/emilogo4";
+import emilogo from "../images/emilogo5";
 import emilogomobile from "../images/emilogo5"
 import burgericon from "../images/burger-menu.png"
 import crossicon from "../images/burger-menu-cross.png"

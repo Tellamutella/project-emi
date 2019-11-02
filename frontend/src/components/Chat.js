@@ -4,7 +4,7 @@ import { withChatkitOneToOne } from '@pusher/chatkit-client-react';
 
 import './Chat.scss';
 import defaultAvatar from '../images/avatar-profile2';
-import BasicLayout from '../layout/BasicLayout';
+
 
 function Chat(props) {
     const [pendingMessage, setPendingMessage] = useState('');

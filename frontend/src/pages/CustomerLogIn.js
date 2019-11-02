@@ -34,8 +34,8 @@ export default class CustomerLogIn extends Component {
             <BasicLayout>
                 <div className="prologin-container">
                     <form onSubmit={this.submitHandler} className="prologin-form">
-                    <h3>Welcome Back!</h3>
-                    <h3>Signin as a Customer</h3>
+                        <h3>Welcome Back!</h3>
+                        <h3>Login As A Customer</h3>
                         <label>Email</label>
                         <input required type="text" name="email" value={this.state.email} onChange={(e) => this.changeHandler(e)} />
 

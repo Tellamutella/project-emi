@@ -37,7 +37,7 @@ export default class ProLogIn extends Component {
         <div className="prologin-container">
           <form onSubmit={this.submitHandler} className="prologin-form">
             <h3>Welcome Back!</h3>
-            <h3>Signin as a Professional</h3>
+            <h3>Login As A Professional</h3>
             <label>Email</label>
             <input
               required
@@ -50,7 +50,7 @@ export default class ProLogIn extends Component {
             <label>Password</label>
             <input
               required
-              type="text"
+              type="password"
               name="password"
               value={this.state.password}
               onChange={e => this.changeHandler(e)}

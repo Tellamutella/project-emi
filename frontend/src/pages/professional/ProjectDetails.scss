@@ -25,7 +25,7 @@
     text-transform: uppercase;
     font-weight: 800;
     font-size: 1rem;
-    margin: 0 0 0 0;
+    margin: 15px 0 0 0;
   }
   h4, p {
     color: #484848;
@@ -44,6 +44,7 @@
     font-size: 1.4rem;
     text-transform: uppercase;
     font-weight: 800;
+    margin: 15px 0 15px 0;
   }
 
   h4, p {
@@ -56,4 +57,43 @@
   p{
     margin:0 0 0 0;
   }
+  img {
+    width: 12px;
+    margin: 10px 0 0 0;
+  }
+}
+
+.quote-input-field {
+  input {
+    height: 25px;
+    width:150px;
+    border-radius: 7px;
+    border: 1px #d0f2ee solid;
+    margin: 0 3px 0 3px;
+    text-indent: 8px;
+    font-size: 0.8rem;
+  }
+  button {
+    height: 30px;
+    border-radius: 7px;
+    background-color: #087285;
+    border: none;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin: 15px 0;
+    text-transform: uppercase;
+  }
+}
+
+.project-quote-container {
+  margin: 20px 0 0 0;
+  h3 {
+    color: #484848;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
 }

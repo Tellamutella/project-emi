@@ -52,6 +52,7 @@
     border: 1px #087285 solid;
     text-indent: 5px;
   }
+  
 }
 
 .form-container {
@@ -63,6 +64,12 @@
   margin-top: 30px;
   border-radius: 5px;
   width: 100%;
+  h3 {
+    color: #087285;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
   @include breakpoint(large) {
     display: block;
     width: 30%;
@@ -72,10 +79,18 @@
 .form-btn {
   height: 35px;
   margin: 15px 0px;
-  border-radius: 3px;
+  border-radius: 7px;
   border: 1px #087285 solid;
   width: 150px;
   background-color: #087285;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form-btn:hover {
+  color: #087285;
+  background: white;
+  border: #087285 1px solid;
+  transition-duration: 0.2s;
 }

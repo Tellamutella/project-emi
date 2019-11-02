@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProjectDetails.scss"
+import locationIcon from "../../images/location-icon.png"
 
 export default function Prodetail(props) {
     return (
@@ -11,8 +12,7 @@ export default function Prodetail(props) {
             <p>{props.project.category}</p>
             <h4>Date:</h4>
             <p>{props.project.date}</p>
-            <h4>Location:</h4>
-            <p>{props.project.location}</p>
+            <p><img src={locationIcon} alt="" /> {props.project.location}</p>
         </div>
     );
 }
