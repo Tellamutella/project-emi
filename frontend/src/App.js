@@ -14,7 +14,7 @@ import NotFound from "./pages/NotFound";
 import { ChatkitProvider, TokenProvider } from '@pusher/chatkit-client-react';
 import CustomerQuoteChat from "./pages/CustomerQuoteChat";
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const tokenProvider = new TokenProvider({
   url: process.env.REACT_APP_CHATKIT_TOKEN
