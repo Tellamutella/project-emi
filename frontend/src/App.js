@@ -10,7 +10,7 @@ import CustomerProject from "./pages/CustomerProject";
 import CustomerProQuotes from "./pages/CustomerProQuotes";
 import ProjectDetails from "./pages/professional/ProjectDetails";
 import NotFound from "./pages/NotFound";
-import Chat from "./components/Chat"
+
 import { ChatkitProvider, TokenProvider } from '@pusher/chatkit-client-react';
 import CustomerQuoteChat from "./pages/CustomerQuoteChat";
 
@@ -67,7 +67,7 @@ function App() {
 
 
 
-        <Route component={NotFound} />>
+        <Route component={NotFound} />
       </Switch>
     </>
   );

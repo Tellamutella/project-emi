@@ -75,8 +75,13 @@ app.use('/api', require('./routes/project'));
 app.use('/api', require('./routes/auth/professional'))
 app.use('/api', require('./routes/quote'))
 
-app.use((req,res)=> {
-  res.redirect(`/?redirectUrl=${req.originalUrl}`)
-})
+// app.use((req,res)=> {
+//   res.redirect(`/?redirectUrl=${req.originalUrl}`)
+// })
+
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/build/index.html");
+});
 
 module.exports = app;
